@@ -12,6 +12,9 @@ pre-push:
   piped: true
   commands:
     block-main:
+      # interactive gives the command the real stdin and stops lefthook's
+      # spinner from painting over the confirmation prompt.
+      interactive: true
       # Not a security control: anything running as this user can defeat it.
       # It stops accidents and honest agents. The real boundary is the
       # GitHub ruleset on main plus juniors holding their own credentials.
