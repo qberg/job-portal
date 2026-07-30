@@ -1,0 +1,21 @@
+pre-commit:
+  parallel: false
+  commands:
+    ultracite:
+      glob: "*.{js,jsx,ts,tsx,json,jsonc,css}"
+      run: pnpm ultracite fix {staged_files}
+      stage_fixed: true
+    gitleaks:
+      run: gitleaks protect --staged --verbose
+
+pre-push:
+  commands:
+    block-main:
+      run: |
+        branch=$(git rev-parse --abbrev-ref HEAD)
+        if [ "$branch" = "main" ]; then
+          echo "Direct push to main is blocked. Open a PR instead."
+          exit 1
+        fi
+    typecheck:
+      run: pnpm turbo run typecheck --filter="...[origin/main]"
