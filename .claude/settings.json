@@ -1,0 +1,75 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/agent-guardrails.sh\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/no-import-extensions.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/no-comment-blocks.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/react-discipline.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/rem-discipline.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/css-tailwind-split.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/date-format-guard.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/cite-mechanism-claims.sh\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "out=$(cd \"$CLAUDE_PROJECT_DIR\" && pnpm -s check:arch 2>&1) || jq -n --arg r \"$(printf 'FSD architecture violation — fix before finishing (pnpm check:arch):\\n%s' \"$out\")\" '{decision:\"block\",reason:$r}'",
+            "timeout": 120,
+            "statusMessage": "Checking FSD architecture (check:arch)"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "ubiquitous-language": true,
+    "grill-me": true,
+    "grill-with-docs": true,
+    "tdd": true,
+    "to-prd": true,
+    "diagnose": true,
+    "to-issues": true,
+    "ship-issue": true,
+    "triage": true,
+    "zoom-out": true,
+    "watch-it-work": true
+  }
+}
