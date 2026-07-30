@@ -59,9 +59,12 @@ Kamal → DigitalOcean for deploys.
 
 - CI must be green to merge: `typecheck`, `check` (ultracite), `check:arch`
   (dependency-cruiser), `test`, `knip`, `build`, gitleaks.
-- `main` is protected. PR-only. CODEOWNERS review (qberg) required.
-- lefthook runs ultracite + gitleaks pre-commit and blocks direct pushes to
-  `main` pre-push.
+- `main` is PR-only for agents and juniors. The repo owner (qberg) pushes to
+  `main` directly — solo tempo beats ceremony while the team is one person.
+  When anyone else gets write access, a GitHub ruleset goes up; a local hook
+  cannot authenticate identity.
+- lefthook runs ultracite + gitleaks pre-commit, and pre-push blocks pushes to
+  `main` from agents (`CLAUDECODE`) and from anything without a terminal.
 - A gate that is wrong gets fixed in its own PR. Bypassing a gate
   (`--no-verify`, force-merge, disabling a rule inline without a reason
   string) is never acceptable.

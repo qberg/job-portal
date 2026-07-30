@@ -12,12 +12,11 @@ pre-push:
   piped: true
   commands:
     block-main:
-      # interactive gives the command the real stdin and stops lefthook's
-      # spinner from painting over the confirmation prompt.
-      interactive: true
-      # Not a security control: anything running as this user can defeat it.
-      # It stops accidents and honest agents. The real boundary is the
-      # GitHub ruleset on main plus juniors holding their own credentials.
+      # Agents and scripts may not push to main. A human at a terminal may.
+      # Not a security control: anything running as this user can defeat it
+      # with --no-verify. It stops agents doing the obvious thing, nothing
+      # more. When juniors get write access, add a GitHub ruleset — that is
+      # the only layer that can authenticate identity.
       run: |
         branch=$(git rev-parse --abbrev-ref HEAD)
         [ "$branch" = "main" ] || exit 0
@@ -29,13 +28,6 @@ pre-push:
 
         if [ ! -c /dev/tty ]; then
           echo "Non-interactive push to main is blocked. Open a PR instead."
-          exit 1
-        fi
-
-        printf 'Push directly to main? Type "main" to confirm: ' > /dev/tty
-        IFS= read -r reply < /dev/tty
-        if [ "$reply" != "main" ]; then
-          echo "Aborted."
           exit 1
         fi
     typecheck:
