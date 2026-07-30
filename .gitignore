@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.next/
+.turbo/
+storybook-static/
+*.tsbuildinfo
+.cache/
+*.bak
+
+# Env files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Kamal secrets (never commit)
+.kamal/secrets*
+.kamal/certs/
+
