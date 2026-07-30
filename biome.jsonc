@@ -1,0 +1,36 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "extends": ["ultracite/biome/core", "ultracite/biome/react"],
+  "files": {
+    "includes": [
+      "!!dist",
+      "!!node_modules",
+      "!!storybook-static",
+      "!!generated",
+      // Payload-CLI-generated migrations: snake_case filenames are Payload's convention.
+      "!!**/cms/src/migrations",
+      "!!**/i18n/locales/*.ts",
+      "!!pnpm-lock.yaml"
+    ]
+  },
+  "assist": {
+    "actions": {
+      "source": { "useSortedProperties": "off" }
+    }
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noBarrelFile": "error",
+        "noNamespaceImport": "off"
+      },
+      "suspicious": { "noConsole": "warn" },
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": { "style": "type" }
+        }
+      }
+    }
+  }
+}
