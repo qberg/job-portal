@@ -9,13 +9,36 @@ pre-commit:
       run: gitleaks protect --staged --verbose
 
 pre-push:
+  piped: true
   commands:
     block-main:
+      # Not a security control: anything running as this user can defeat it.
+      # It stops accidents and honest agents. The real boundary is the
+      # GitHub ruleset on main plus juniors holding their own credentials.
       run: |
         branch=$(git rev-parse --abbrev-ref HEAD)
-        if [ "$branch" = "main" ]; then
-          echo "Direct push to main is blocked. Open a PR instead."
+        [ "$branch" = "main" ] || exit 0
+
+        if [ -n "$CLAUDECODE" ] || [ -n "$CLAUDE_CODE_ENTRYPOINT" ]; then
+          echo "Agent push to main is blocked. Open a PR instead."
+          exit 1
+        fi
+
+        if [ ! -c /dev/tty ]; then
+          echo "Non-interactive push to main is blocked. Open a PR instead."
+          exit 1
+        fi
+
+        printf 'Push directly to main? Type "main" to confirm: ' > /dev/tty
+        IFS= read -r reply < /dev/tty
+        if [ "$reply" != "main" ]; then
+          echo "Aborted."
           exit 1
         fi
     typecheck:
-      run: pnpm turbo run typecheck --filter="...[origin/main]"
+      run: |
+        if git rev-parse --verify --quiet origin/main >/dev/null; then
+          pnpm turbo run typecheck --filter="...[origin/main]"
+        else
+          pnpm turbo run typecheck
+        fi
