@@ -1,0 +1,63 @@
+/* Motion primitives — durations + easings (ADR-0038 motion tier).
+   First motion-token layer in tribune; absorbs the per-component @extrapolated
+   markers (dialog.css, button.css) into one named vocabulary.
+
+   Values extrapolated from existing tribune feel + Emil Kowalski's
+   web-animation-design blueprint (enter/exit = ease-out). EVERY value here is
+   @extrapolated, pending HITL designer sign-off — grep "@extrapolated(motion)"
+   for the backlog. Vocabulary grows JIT: add an easing when a component consumes
+   it, not speculatively.
+
+   Easings extend (never override) Tailwind's --ease-linear/in/out/in-out
+   defaults — distinct names so existing `ease-out` utilities are untouched.
+
+   `static` is load-bearing: components consume these ONLY via raw var() in CSS,
+   invisible to Tailwind's scanner — plain @theme gets pruned and every
+   animation/transition shorthand referencing a token collapses to none. */
+
+@theme static {
+  /* Durations — UI motion stays <300ms; pulse is ambient breathing. */
+  --duration-fast: 120ms; /* @extrapolated(motion): micro — glyph hover, icon swap */
+  --duration-base: 200ms; /* @extrapolated(motion): standard UI + exit transitions */
+  --duration-slow: 300ms; /* @extrapolated(motion): large surface — sheet/backdrop enter */
+  --duration-pulse: 1600ms; /* @extrapolated(motion): ambient breathing — visualizer idle */
+  --duration-roll: 650ms; /* @extrapolated(motion): odometer digit spin, mock .dcol */
+
+  /* Easings — both ease-out family (enter/exit). */
+  --ease-emphasized: cubic-bezier(
+    0.215,
+    0.61,
+    0.355,
+    1
+  ); /* @extrapolated(motion): ease-out-cubic, default enter/exit */
+  --ease-emphasized-strong: cubic-bezier(
+    0.165,
+    0.84,
+    0.44,
+    1
+  ); /* @extrapolated(motion): ease-out-quart, sheet slide */
+  --ease-spring: cubic-bezier(
+    0.34,
+    1.56,
+    0.64,
+    1
+  ); /* @extrapolated(motion): settle overshoot, design doc §03 */
+  --ease-pulse: cubic-bezier(
+    0.4,
+    0,
+    0.6,
+    1
+  ); /* @extrapolated(motion): symmetric breathing — skeleton opacity pulse */
+  --ease-in-out-cubic: cubic-bezier(
+    0.645,
+    0.045,
+    0.355,
+    1
+  ); /* @extrapolated(motion): dataviz scrub/morph, issue #105 */
+  --ease-out-quint: cubic-bezier(
+    0.23,
+    1,
+    0.32,
+    1
+  ); /* @extrapolated(motion): dataviz draw-in, issue #105 */
+}

@@ -1,0 +1,15 @@
+/* Public layout tokens (ADR-0027). GLOBAL/shared layout constants only — one-off
+   section dims live local in the widget's CSS Module (ADR-0060 amended 2026-07-08).
+   --nav-site-height is shared: navbar defines the chrome height, hero subtracts it.
+   Authored in rem so the ≥1280 root lever zooms it; consumed as the h-nav-site-height
+   utility — never [var()]/paren-shorthand in JSX. */
+
+@theme {
+  --spacing-nav-site-height: var(--nav-site-height);
+}
+
+[data-surface="public"] {
+  --nav-site-height: 4.75rem;
+  /* content gutter, fluid pair {16 @390, 60 @1280}; endpoints verified numerically */
+  --mkt-gutter: clamp(1rem, calc(-0.2051rem + 4.9438vw), 3.75rem);
+}

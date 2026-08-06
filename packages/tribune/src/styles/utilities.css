@@ -1,0 +1,30 @@
+/**
+ * Vertex - Custom Utilities
+ *
+ * Only utilities that need Tailwind's variant support live here.
+ * One-off styles belong in components via CVA, not here.
+ * If you are adding more than 3 utilities, question whether
+ * it belongs in a component instead.
+ */
+
+@utility container-content {
+  width: 100%;
+  max-width: 1000px;
+  padding-inline: calc(var(--spacing) * 6);
+  margin-inline: auto;
+}
+
+@utility focus-ring {
+  outline: 2px solid var(--tbn-border-focus);
+  outline-offset: 2px;
+}
+
+@utility tbn-frost {
+  background: var(--tbn-material-frost-bg);
+  backdrop-filter: blur(var(--tbn-material-frost-blur))
+    saturate(var(--tbn-material-frost-saturate, 100%));
+
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--tbn-bg-surface);
+  }
+}

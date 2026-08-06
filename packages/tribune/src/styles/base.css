@@ -1,0 +1,64 @@
+/**
+ * Vertex - Base Reset & Document Defaults
+ *
+ * Applies design tokens and platform-level fixes.
+ * Relies on Tailwind's Preflight for standard HTML element resets.
+ */
+
+@layer base {
+  html {
+    /* Bind to the variable font stack defined in typography.css */
+    font-family: var(--font-sans);
+
+    /* Enable standard ligatures and contextual alternates for Public Sans */
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+
+    /* Font smoothing for crisp text on Mac/iOS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    /* Semantic theme binding */
+    position: relative;
+
+    min-height: 100dvh;
+    color: var(--tbn-text-primary);
+    /* Semantic theme binding */
+    background-color: var(--tbn-bg-base);
+  }
+
+  /* ── Base UI Fix: Portal Stacking Context ── */
+  /* Guarantees popovers/dialogs float above all app content */
+  .root,
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  /* ── Selection (Highlighting text) ── */
+  ::selection {
+    color: var(--tbn-text-primary);
+    background-color: var(--color-brand-200);
+  }
+
+  /* ── Custom Scrollbar (Firefox & Modern Chrome/Edge) ── */
+  * {
+    scrollbar-color: var(--color-neutral-300) transparent;
+    scrollbar-width: thin;
+  }
+
+  /* Optional: Dark mode scrollbar support using your semantic alphas */
+  [data-theme="dark"] * {
+    scrollbar-color: var(--tbn-alpha-300) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    scroll-behavior: smooth;
+  }
+}

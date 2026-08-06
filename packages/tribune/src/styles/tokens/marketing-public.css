@@ -1,0 +1,12 @@
+/* Public-surface ground tokens. Petition's full --mkt-* marketing palette
+   (gallery/map/social/office blocks) was not carried (ADR-0014) — job-portal's
+   marketing tokens grow here when its public surface is built. base-public.css
+   consumes --mkt-bg-page; keep it defined. */
+[data-surface="public"] {
+  /* the surface's page ground — warm off-white, never pure white */
+  --mkt-bg-page: var(--color-cream);
+  --mkt-bg-text-neutral: var(--color-black-a5);
+  --mkt-bg-text-ink: var(--color-ink-a10);
+  --mkt-bg-text-brand: var(--color-brand-a5);
+  --mkt-bg-text-inverse: var(--color-white-a50);
+}

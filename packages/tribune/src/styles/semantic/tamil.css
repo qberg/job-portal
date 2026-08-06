@@ -1,0 +1,6 @@
+@layer base {
+  :root:lang(ta),
+  [lang="ta"] {
+    --font-sans: "Noto Sans Tamil Variable", ui-sans-serif, sans-serif;
+  }
+}

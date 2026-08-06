@@ -1,0 +1,9 @@
+/* Admin entry (web-admin, storybook): core + Public Sans stack + admin type scale. */
+
+@import "@fontsource-variable/public-sans/wght.css";
+@import "@fontsource/pt-serif/latin-700.css";
+@import "@fontsource-variable/noto-sans-tamil";
+
+@import "tailwindcss";
+@import "./core.css";
+@import "./tokens/typography.css";

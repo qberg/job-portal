@@ -1,0 +1,10 @@
+{
+  "extends": "@jp/typescript-config/react-library.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "src",
+    "isolatedDeclarations": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,64 @@
+@layer base {
+  [data-theme="dark"] {
+    /* Mapped from Figma's --alpha-dark-* */
+    --tbn-alpha-50: oklch(1 0 89.9 / 0.06);
+    --tbn-alpha-100: oklch(1 0 89.9 / 0.09);
+    --tbn-alpha-200: oklch(1 0 89.9 / 0.2);
+    --tbn-alpha-300: oklch(1 0 89.9 / 0.28);
+    --tbn-alpha-400: oklch(1 0 89.9 / 0.36);
+    --tbn-alpha-500: oklch(1 0 89.9 / 0.48);
+    --tbn-alpha-600: oklch(1 0 89.9 / 0.6);
+    --tbn-alpha-700: oklch(1 0 89.9 / 0.7);
+    --tbn-alpha-800: oklch(1 0 89.9 / 0.75);
+    --tbn-alpha-900: oklch(1 0 89.9 / 0.8);
+    --tbn-alpha-1000: oklch(1 0 89.9); /* solid white */
+    --tbn-alpha-0: oklch(0.191 0 89.9); /* base dark */
+
+    /* ── TODO: Dark semantic tokens pending ui/ux handoff ── */
+
+    /* dataviz: same as light pending dark-theme HITL */
+    --tbn-viz-cat-1: var(--color-brand-500);
+    --tbn-viz-cat-2: var(--color-blue-500);
+    --tbn-viz-cat-3: var(--color-teal-500);
+    --tbn-viz-cat-4: var(--color-amber-500);
+    --tbn-viz-cat-5: var(--color-purple-500);
+    --tbn-viz-cat-6: var(--color-pink-500);
+    --tbn-viz-cat-7: var(--color-green-600);
+    --tbn-viz-cat-8: var(--color-slate-400);
+    --tbn-viz-seq-1: var(--color-brand-100);
+    --tbn-viz-seq-2: var(--color-brand-200);
+    --tbn-viz-seq-3: var(--color-brand-300);
+    --tbn-viz-seq-4: var(--color-brand-500);
+    --tbn-viz-seq-5: var(--color-brand-600);
+    --tbn-viz-seq-6: var(--color-brand-700);
+    --tbn-viz-status-open: var(--color-slate-400);
+    --tbn-viz-status-reviewed: var(--color-orange-500);
+    --tbn-viz-status-forwarded: var(--color-blue-500);
+    --tbn-viz-status-dept-resolved: var(--color-purple-500);
+    --tbn-viz-status-verifying: var(--color-orange-300);
+    --tbn-viz-status-closed: var(--color-green-600);
+    --tbn-viz-status-ready-to-promote: var(--color-pink-500);
+    --tbn-viz-status-promoted: var(--color-teal-500);
+    --tbn-viz-status-unsolvable: var(--color-red-600);
+    --tbn-viz-grid-line: var(--tbn-border-muted);
+    --tbn-viz-axis-line: var(--tbn-border-default);
+    --tbn-viz-axis-text: var(--tbn-text-tertiary);
+    --tbn-viz-tooltip-bg: var(--tbn-bg-surface);
+    --tbn-viz-tooltip-text: var(--tbn-text-primary);
+    --tbn-viz-tooltip-border: var(--tbn-border-default);
+    --tbn-viz-tooltip-shadow: var(--tbn-alpha-200);
+    --tbn-viz-tooltip-bg-frosted: color-mix(
+      in oklab,
+      var(--tbn-bg-surface) 72%,
+      transparent
+    ); /* @extrapolated(frosted): evilcharts 70% ref, 72% approved HITL 2026-07-06 */
+    --tbn-viz-tooltip-blur: 8px; /* @extrapolated(frosted): approved HITL 2026-07-06, Figma TBD */
+    --tbn-viz-cursor-line: oklch(from var(--tbn-text-primary) l c h / 0.35);
+    --tbn-viz-march: 2400ms; /* @extrapolated(march): evilcharts 1s slowed 2.4x, approved HITL 2026-07-06 */
+    --tbn-viz-brush-veil: color-mix(
+      in oklab,
+      var(--tbn-bg-surface) 70%,
+      transparent
+    ); /* @extrapolated(brush-veil): evilcharts bg/70, approved HITL 2026-07-06 */
+  }
+}

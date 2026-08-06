@@ -1,0 +1,196 @@
+/* Public editorial type tokens, scoped to the marketing surface (ADR 0027).
+   Composite tokens: each role owns size + line-height + letter-spacing + font-family.
+   Language is a theming axis (:lang(ta) repoints face + metrics). ≥1280 root-zoom
+   scales every rem; <1280 clamp() interpolates to the 390 anchor. */
+
+[data-surface="public"] {
+  /* @extrapolated: display/editorial faces pending job-portal public Figma —
+     petition's Sagite/Sheftira not carried (brand + licence). Placeholders keep
+     the composite-token machinery working end-to-end. */
+  --font-display: "Inter Display", ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: "PT Serif", Georgia, serif;
+  --font-body: "Inter Display", ui-sans-serif, system-ui, sans-serif;
+  /* ta face: Ila Sundaram (CDAC GIST Unicode, self-hosted, same client face as
+     petition). Noto kept as glyph-fallback. Single weight (no bold). */
+  --font-ta-display: "Ila Sundaram", "Noto Sans Tamil Variable", sans-serif;
+  --font-ta-body:
+    "Ila Sundaram", "Inter Display", "Noto Sans Tamil Variable", sans-serif;
+
+  /* Icon-beside-text anchor: ink-center height above BASELINE (browser-measured).
+     Latin = Inter capHeight/2. Consume via align-self:baseline +
+     translateY(calc(50% - var(--tbn-icon-anchor))) — box-centering mis-sits icons
+     because Tamil ink hangs low in Latin-sized line boxes. */
+  --tbn-icon-anchor: 0.36em;
+
+  /* Display (bg-text-*) */
+  --text-bg-text-1: 15.625rem;
+  --text-bg-text-1--line-height: normal;
+  --text-bg-text-1--letter-spacing: -0.01em;
+  --text-bg-text-1--font-family: var(--font-display);
+
+  --text-bg-text-2: 11.875rem;
+  --text-bg-text-2--line-height: normal;
+  --text-bg-text-2--letter-spacing: -0.01316em;
+  --text-bg-text-2--font-family: var(--font-display);
+
+  --text-bg-text-3: 9.375rem;
+  --text-bg-text-3--line-height: normal;
+  --text-bg-text-3--letter-spacing: -0.01667em;
+  --text-bg-text-3--font-family: var(--font-display);
+
+  /* Title (title-*) */
+  --text-title-1: 6rem;
+  --text-title-1--line-height: normal;
+  --text-title-1--letter-spacing: 0;
+  --text-title-1--font-family: var(--font-editorial);
+
+  --text-title-2: 4rem;
+  --text-title-2--line-height: normal;
+  --text-title-2--letter-spacing: 0;
+  --text-title-2--font-family: var(--font-editorial);
+
+  --text-title-3: 3rem;
+  --text-title-3--line-height: normal;
+  --text-title-3--letter-spacing: 0;
+  --text-title-3--font-family: var(--font-editorial);
+
+  --text-title-4: 2.25rem;
+  --text-title-4--line-height: normal;
+  --text-title-4--letter-spacing: 0;
+  --text-title-4--font-family: var(--font-editorial);
+
+  --text-title-5: 1.25rem;
+  --text-title-5--line-height: normal;
+  --text-title-5--letter-spacing: 0;
+  --text-title-5--font-family: var(--font-editorial);
+
+  --text-title-6: 1rem;
+  --text-title-6--line-height: normal;
+  --text-title-6--letter-spacing: 0;
+  --text-title-6--font-family: var(--font-editorial);
+
+  /* Body, Inter Display (ui-*, caption-*) */
+  --text-ui-1: 1.25rem;
+  --text-ui-1--line-height: normal;
+  --text-ui-1--letter-spacing: 0;
+  --text-ui-1--font-family: var(--font-body);
+
+  --text-ui-2: 1rem;
+  --text-ui-2--line-height: 1.5rem;
+  --text-ui-2--letter-spacing: 0;
+  --text-ui-2--font-family: var(--font-body);
+
+  --text-ui-3: 0.875rem;
+  --text-ui-3--line-height: normal;
+  --text-ui-3--letter-spacing: 0;
+  --text-ui-3--font-family: var(--font-body);
+
+  --text-caption-1: 0.75rem;
+  --text-caption-1--line-height: normal;
+  --text-caption-1--letter-spacing: 0.125em;
+  --text-caption-1--font-family: var(--font-body);
+
+  font-family: var(--font-body);
+}
+
+/* ≥1280: scale the root → every rem (type + spacing) zooms proportionally to
+   2560 (frozen after). Language-agnostic: ta tokens are rem too.
+   EXPERIMENT 2026-07-08 (client: pixel-perfect over a11y): pure-vw photocopy —
+   1.25vw = 16 px @1280 (continuous), 2x @2560. Page zoom frozen in-band (F94);
+   zoom path = band descent below 80rem. Dial back to the a11y lever by
+   restoring: clamp(1rem, calc(0.4rem + 0.75vw), 1.6rem) */
+@media (min-width: 80rem) {
+  html[data-surface="public"] {
+    font-size: min(1.25vw, 2rem);
+  }
+}
+
+/* <1280 EN: interpolate fluid steps down to the 390 anchor. Fixed steps omitted. */
+@media (width < 80rem) {
+  [data-surface="public"] {
+    --text-bg-text-2: clamp(6.875rem, calc(4.684rem + 8.9888vw), 11.875rem);
+    --text-bg-text-3: clamp(7.5rem, calc(6.678rem + 3.3708vw), 9.375rem);
+    --text-title-1: clamp(4rem, calc(3.124rem + 3.5955vw), 6rem);
+    --text-title-2: clamp(3rem, calc(2.562rem + 1.7978vw), 4rem);
+    --text-title-3: clamp(2.25rem, calc(1.921rem + 1.3483vw), 3rem);
+    --text-title-4: clamp(1.5rem, calc(1.171rem + 1.3483vw), 2.25rem);
+    --text-ui-1: clamp(1.125rem, calc(1.07rem + 0.2247vw), 1.25rem);
+  }
+}
+
+/* Tamil: repoint face + metrics. All roles → Ila Sundaram (designer new-Tamil Figma). */
+[data-surface="public"]:lang(ta) {
+  /* Tamil fonts reserve ~1.7 'normal' leading for stacked marks — display roles need
+     explicit tight line-heights. Ila Sundaram is single-weight → no bold overrides
+     (Figma new-Tamil roles are Regular); line-heights pending an ila-metrics feel-gate. */
+  --tbn-icon-anchor: 0.2em; /* Ila Sundaram ink: asc ~0.61em, desc ~0.19em */
+  --tbn-ink-shift: 0.11em; /* Ila ink below line-box center; icon slots consume */
+
+  --text-bg-text-1: 13.125rem;
+  --text-bg-text-1--line-height: 1.1;
+  --text-bg-text-1--letter-spacing: 0;
+  --text-bg-text-1--font-family: var(--font-ta-display);
+
+  --text-bg-text-2: 11.25rem;
+  --text-bg-text-2--line-height: 1.1;
+  --text-bg-text-2--letter-spacing: 0;
+  --text-bg-text-2--font-family: var(--font-ta-display);
+
+  --text-bg-text-3: 9.375rem;
+  --text-bg-text-3--line-height: 1.1;
+  --text-bg-text-3--letter-spacing: 0;
+  --text-bg-text-3--font-family: var(--font-ta-display);
+
+  --text-title-1: 6rem;
+  --text-title-1--line-height: 1.1;
+  --text-title-1--font-family: var(--font-ta-display);
+
+  --text-title-2: 4.5rem;
+  --text-title-2--line-height: 1.1;
+  --text-title-2--font-family: var(--font-ta-display);
+
+  --text-title-3: 3rem;
+  --text-title-3--line-height: 1.1;
+  --text-title-3--font-family: var(--font-ta-display);
+
+  --text-title-4: 2rem;
+  --text-title-4--line-height: 1.1;
+  --text-title-4--font-family: var(--font-ta-display);
+
+  --text-title-5: 1.25rem;
+  --text-title-5--line-height: 1.1;
+  --text-title-5--font-family: var(--font-ta-display);
+
+  --text-title-6: 1rem;
+  --text-title-6--line-height: 1.1;
+  --text-title-6--font-family: var(--font-ta-display);
+
+  --text-ui-1: 1.25rem;
+  /* @extrapolated: tighter than Ila Sundaram intrinsic normal, HITL/Figma pending */
+  --text-ui-1--line-height: 1.05;
+  --text-ui-1--font-family: var(--font-ta-body);
+
+  --text-ui-2: 1.125rem;
+  --text-ui-2--font-family: var(--font-ta-body);
+
+  --text-ui-3: 1.125rem;
+  --text-ui-3--font-family: var(--font-ta-body);
+
+  --text-caption-1: 0.875rem;
+  --text-caption-1--letter-spacing: 0.1071em;
+  --text-caption-1--font-family: var(--font-ta-body);
+  --text-caption-1--font-weight: 500;
+}
+
+/* <1280 Tamil: ta-specific clamp interpolation to the 390 anchor. */
+@media (width < 80rem) {
+  [data-surface="public"]:lang(ta) {
+    --text-bg-text-2: clamp(5rem, calc(2.2612rem + 11.236vw), 11.25rem);
+    --text-bg-text-3: clamp(7.5rem, calc(6.678rem + 3.3708vw), 9.375rem);
+    --text-title-1: clamp(3.375rem, calc(2.225rem + 4.7191vw), 6rem);
+    --text-title-2: clamp(3rem, calc(2.3427rem + 2.6966vw), 4.5rem);
+    --text-title-3: clamp(2.25rem, calc(1.921rem + 1.3483vw), 3rem);
+    --text-title-4: clamp(1.75rem, calc(1.6404rem + 0.4494vw), 2rem);
+    --text-ui-1: clamp(1.125rem, calc(1.07rem + 0.2247vw), 1.25rem);
+  }
+}

@@ -18,14 +18,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",
-    "@jp/typescript-config": "workspace:*",
     "@types/node": "^22.0.0",
     "knip": "catalog:",
     "lefthook": "^1.13.6",
     "turbo": "^2.8.20",
     "typescript": "^5.9.3",
-    "ultracite": "^7.3.2",
-    "vitest": "catalog:"
+    "ultracite": "^7.3.2"
   },
   "engines": {
     "node": ">=22"

@@ -1,0 +1,13 @@
+/* Marketing-surface chrome. Portal/admin (bare html) keep native browser chrome. */
+
+/* Hidden scrollbar: classic bars (Chrome/Win+Linux) shrink layout vs vw → skews the
+   ADR-0027 photocopy fraction + looks different per engine. Wheel/touch/keys unaffected. */
+html[data-surface="public"] {
+  /* the surface's ground is warm off-white, not the browser's pure white */
+  background-color: var(--mkt-bg-page);
+  scrollbar-width: none;
+}
+
+html[data-surface="public"]::-webkit-scrollbar {
+  display: none;
+}

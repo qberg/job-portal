@@ -1,0 +1,15 @@
+/* Marketing entry (web-public): core + editorial stack. Peer of index.css, never imported by admin. */
+/* ≥1280 proportional :root scaling (ADR 0027) lives in tokens/typography-public.css. */
+
+@import "./fonts/fonts-public.css";
+@import "@fontsource/pt-serif/latin-400.css";
+@import "@fontsource/pt-serif/latin-700.css";
+@import "@fontsource-variable/noto-sans-tamil";
+
+@import "tailwindcss";
+@import "./core.css";
+@import "./base-public.css";
+@import "./tokens/typography-public.css";
+/* base-public.css consumes --mkt-bg-page; app.css already carries these two */
+@import "./tokens/layout-public.css";
+@import "./tokens/marketing-public.css";

@@ -1,0 +1,303 @@
+@layer base {
+  :root,
+  [data-theme="light"] {
+    --tbn-alpha-50: oklch(0.218 0 89.9 / 0.06);
+    --tbn-alpha-100: oklch(0.218 0 89.9 / 0.09);
+    --tbn-alpha-200: oklch(0.218 0 89.9 / 0.2);
+    --tbn-alpha-300: oklch(0.218 0 89.9 / 0.28);
+    --tbn-alpha-400: oklch(0.218 0 89.9 / 0.36);
+    --tbn-alpha-500: oklch(0.218 0 89.9 / 0.48);
+    --tbn-alpha-600: oklch(0.218 0 89.9 / 0.6);
+    --tbn-alpha-700: oklch(0.218 0 89.9 / 0.7);
+    --tbn-alpha-800: oklch(0.218 0 89.9 / 0.75);
+    --tbn-alpha-900: oklch(0.218 0 89.9 / 0.8);
+    --tbn-alpha-1000: oklch(0.218 0 89.9); /* full solid */
+    --tbn-alpha-0: oklch(1 0 89.9); /* white */
+
+    /* Scrim, the dim behind a modal/overlay surface (Material `scrim` role).
+       Figma-declared value; its own role, not an icon/border alias. */
+    --tbn-overlay-scrim: oklch(0.2972 0 0 / 0.5);
+
+    /* ── Backgrounds ── */
+    --tbn-bg-surface: oklch(1 0 0);
+    --tbn-bg-page: oklch(0.9674 0.0013 286.38);
+    --tbn-bg-base: var(--color-white);
+    --tbn-bg-surface-secondary: var(--color-cream);
+    --tbn-bg-surface-tertiary: var(--color-brand-500);
+    --tbn-bg-hover-subtle: oklch(from var(--color-brand-500) l c h / 0.04);
+    --tbn-bg-hover: oklch(from var(--color-brand-500) l c h / 0.08);
+    --tbn-bg-active: oklch(from var(--color-brand-500) l c h / 0.12);
+    --tbn-bg-selected: oklch(from var(--color-brand-500) l c h / 0.08);
+    --tbn-bg-accent-subtle: var(--color-rose-50);
+    --tbn-bg-accent-faint: oklch(from var(--color-brand-500) l c h / 0.06);
+    /* Figma-true: brand 8% — static accent surface (e.g. reference chip). */
+    --tbn-bg-accent-soft: oklch(from var(--color-brand-500) l c h / 0.08);
+
+    /* ── Material (frosted surface) ── */
+    /* Semantic frost pair — the `.tbn-frost` utility + sheet's frosted variant
+       both alias these. Hoisted from sheet.css so a non-sheet surface (map dock)
+       can wear the same material. */
+    --tbn-material-frost-bg: color-mix(
+      in oklch,
+      var(--tbn-bg-surface) 64%,
+      transparent
+    ); /* @extrapolated(material): frost alpha, pending feel-gate */
+    --tbn-material-frost-blur: 15px; /* @extrapolated(material): Apple Maps web ships backdrop-filter blur(15px), search.css v1.7.372 */
+    /* Saturation bloom is what makes iOS materials read as glass — without it blur just grays out (canonical web frost recipe, e.g. apple.com chrome). */
+    --tbn-material-frost-saturate: 180%; /* @extrapolated(material): pending feel-gate */
+
+    /* ── Text ── */
+    --tbn-text-primary: oklch(0.2972 0 0);
+    --tbn-text-secondary: oklch(0.2972 0 0 / 0.8);
+    --tbn-text-tertiary: oklch(0.2972 0 0 / 0.6);
+    --tbn-text-disabled: oklch(0.2972 0 0 / 0.5);
+    --tbn-text-inverse: var(--color-white);
+    --tbn-text-brand: var(--color-brand-500);
+    --tbn-text-brand-yellow: var(--color-brand-yellow);
+
+    /* ── Borders ── */
+    --tbn-border-default: oklch(0 0 0 / 0.12);
+    --tbn-border-muted: oklch(0 0 0 / 0.08);
+    --tbn-border-strong: oklch(0 0 0 / 0.2);
+    --tbn-border-overlay: oklch(0.2972 0 0 / 0.5);
+    --tbn-border-control: oklch(0.2972 0 0 / 0.12);
+    --tbn-border-dashed: oklch(from var(--tbn-text-primary) l c h / 0.32);
+    --tbn-border-brand: var(--color-brand-500);
+    --tbn-border-focus: oklch(0.562 0.2142 258.7 / 0.5);
+    --tbn-border-success: var(--color-green-700);
+    --tbn-border-warning: var(--color-orange-600);
+    --tbn-border-error: var(--color-red-700);
+
+    /* ── Icon ── */
+    --tbn-icon-primary: oklch(0.2972 0 0);
+    --tbn-icon-secondary: oklch(0.2972 0 0 / 0.8);
+    --tbn-icon-tertiary: oklch(0.2972 0 0 / 0.6);
+    --tbn-icon-disabled: oklch(0.2972 0 0 / 0.5);
+    --tbn-icon-muted: oklch(0.2972 0 0 / 0.5);
+    --tbn-icon-inverse: var(--color-white);
+    --tbn-icon-brand: var(--color-brand-500);
+    --tbn-icon-accent: var(--color-brand-yellow);
+    --tbn-icon-success: var(--color-green-700);
+    --tbn-icon-warning: var(--color-orange-600);
+    --tbn-icon-error: var(--color-red-700);
+
+    /* ── Action States ── */
+    --tbn-action-hover: oklch(0 0 0 / 0.04);
+    --tbn-action-selected: oklch(0 0 0 / 0.08);
+    --tbn-action-focus: oklch(0 0 0 / 0.12);
+    --tbn-action-disabled: oklch(0 0 0 / 0.26);
+    --tbn-action-disabled-bg: oklch(0 0 0 / 0.12);
+
+    /* button-* in figma */
+    --tbn-action-primary-hover: oklch(from var(--color-brand-500) l c h / 0.08);
+    --tbn-action-primary-selected: oklch(
+      from var(--color-brand-500) l c h /
+      0.12
+    );
+    --tbn-action-primary-focus: oklch(from var(--color-brand-500) l c h / 0.16);
+    --tbn-action-primary-focus-visible: oklch(
+      from var(--color-brand-500) l c h /
+      0.4
+    );
+    --tbn-action-primary-border: oklch(from var(--color-brand-500) l c h / 0.5);
+    --tbn-action-primary-ghost: oklch(from var(--color-brand-500) l c h / 0.06);
+
+    --tbn-action-secondary-default: oklch(0.861 0.176 89 / 0.08);
+    --tbn-action-secondary-hover: oklch(0.861 0.176 89 / 0.12);
+    --tbn-action-secondary-selected: oklch(0.861 0.176 89 / 0.12);
+    --tbn-action-secondary-focus: oklch(0.861 0.176 89 / 0.16);
+    --tbn-action-secondary-focus-visible: oklch(0.861 0.176 89 / 0.4);
+    --tbn-action-secondary-border: oklch(0.861 0.176 89 / 0.5);
+    --tbn-action-secondary-ghost: oklch(0.861 0.176 89 / 0.06);
+
+    --tbn-action-error-hover: oklch(from var(--color-red-500) l c h / 0.08);
+    --tbn-action-error-selected: oklch(from var(--color-red-500) l c h / 0.12);
+    --tbn-action-error-focus: oklch(from var(--color-red-500) l c h / 0.16);
+    --tbn-action-error-focus-visible: oklch(
+      from var(--color-red-500) l c h /
+      0.4
+    );
+    --tbn-action-error-border: oklch(from var(--color-red-500) l c h / 0.5);
+    --tbn-action-error-ghost: oklch(from var(--color-red-500) l c h / 0.06);
+
+    --tbn-action-warning-hover: oklch(
+      from var(--color-orange-500) l c h /
+      0.08
+    );
+    --tbn-action-warning-selected: oklch(
+      from var(--color-orange-500) l c h /
+      0.12
+    );
+    --tbn-action-warning-focus: oklch(
+      from var(--color-orange-500) l c h /
+      0.16
+    );
+    --tbn-action-warning-focus-visible: oklch(
+      from var(--color-orange-500) l c h /
+      0.4
+    );
+    --tbn-action-warning-border: oklch(
+      from var(--color-orange-500) l c h /
+      0.5
+    );
+    --tbn-action-warning-ghost: oklch(
+      from var(--color-orange-500) l c h /
+      0.06
+    );
+
+    --tbn-action-success-hover: oklch(from var(--color-green-700) l c h / 0.08);
+    --tbn-action-success-selected: oklch(
+      from var(--color-green-700) l c h /
+      0.12
+    );
+    --tbn-action-success-focus: oklch(from var(--color-green-700) l c h / 0.16);
+    --tbn-action-success-focus-visible: oklch(
+      from var(--color-green-700) l c h /
+      0.3
+    );
+    --tbn-action-success-border: oklch(from var(--color-green-700) l c h / 0.5);
+    --tbn-action-success-ghost: oklch(from var(--color-green-700) l c h / 0.06);
+
+    --tbn-action-neutral-hover: oklch(0.4386 0 0 / 8%);
+    --tbn-action-neutral-selected: oklch(0.4386 0 0 / 12%);
+    --tbn-action-neutral-focus: oklch(0.4386 0 0 / 16%);
+    --tbn-action-neutral-focus-visible: oklch(0.4386 0 0 / 30%);
+    --tbn-action-neutral-border: oklch(0.4386 0 0 / 50%);
+    --tbn-action-neutral-ghost: oklch(0.4386 0 0 / 6%);
+
+    /* ── Feedback/Status ── */ /* Success */
+    --tbn-status-success-bg: var(--color-green-50);
+    --tbn-status-success-text: var(--color-green-700);
+    --tbn-status-success-icon: var(--color-green-700);
+    --tbn-status-success-border: var(--color-green-200);
+
+    /* Warning */
+    --tbn-status-warning-bg: var(--color-orange-50);
+    --tbn-status-warning-text: var(--color-orange-700);
+    --tbn-status-warning-icon: var(--color-orange-700);
+    --tbn-status-warning-border: var(--color-orange-200);
+
+    /* Error */
+    --tbn-status-error-bg: var(--color-red-50);
+    --tbn-status-error-text: var(--color-red-700);
+    --tbn-status-error-icon: var(--color-red-700);
+    --tbn-status-error-border: var(--color-red-200);
+
+    /* Info */
+    --tbn-status-info-bg: var(--color-cyan-50);
+    --tbn-status-info-text: var(--color-cyan-700);
+    --tbn-status-info-icon: var(--color-cyan-700);
+    --tbn-status-info-border: var(--color-cyan-200);
+
+    /* ── Status badge hues (Figma admin p7/p8 — soft, alpha-on-base) ── */
+    --tbn-status-grey-bg: oklch(0.4386 0 0 / 0.06);
+    --tbn-status-grey-text: var(--tbn-text-primary);
+    --tbn-status-grey-border: oklch(0.4386 0 0 / 0.3);
+    --tbn-status-orange-bg: oklch(0.7049 0.1867 47.6 / 0.16);
+    --tbn-status-orange-text: oklch(0.7049 0.1867 47.6);
+    --tbn-status-orange-border: oklch(0.7049 0.1867 47.6 / 0.4);
+    --tbn-status-blue-bg: oklch(0.572 0.2076 258.93 / 0.04);
+    --tbn-status-blue-text: oklch(0.572 0.2076 258.93);
+    --tbn-status-blue-border: oklch(0.572 0.2076 258.93 / 0.12);
+    --tbn-status-purple-bg: oklch(0.4846 0.2378 300.07 / 0.04);
+    --tbn-status-purple-text: oklch(0.4846 0.2378 300.07);
+    --tbn-status-purple-border: oklch(0.4846 0.2378 300.07 / 0.12);
+    --tbn-status-pink-bg: oklch(0.5413 0.2307 344.43 / 0.04);
+    --tbn-status-pink-text: oklch(0.5413 0.2307 344.43);
+    --tbn-status-pink-border: oklch(0.5413 0.2307 344.43 / 0.2);
+    --tbn-status-teal-bg: oklch(0.6115 0.1041 191.45 / 0.04);
+    --tbn-status-teal-text: oklch(0.6115 0.1041 191.45);
+    --tbn-status-teal-border: oklch(0.6115 0.1041 191.45 / 0.2);
+    /* EXTRAPOLATED — pending_unsolvable_approval; amber placeholder, RECONCILE w/ Figma */
+    --tbn-status-amber-bg: oklch(0.7686 0.1647 70.08 / 0.14);
+    --tbn-status-amber-text: oklch(0.7686 0.1647 70.08);
+    --tbn-status-amber-border: oklch(0.7686 0.1647 70.08 / 0.35);
+
+    --tbn-status-brand-bg: oklch(from var(--color-brand-500) l c h / 0.08);
+    --tbn-status-brand-text: var(--color-brand-500);
+    --tbn-status-brand-border: oklch(from var(--color-brand-500) l c h / 0.08);
+
+    /** Fields */
+    --tbn-field-border-default: oklch(0.9197 0.004 286.32);
+    --tbn-field-border-hover: oklch(0.2972 0 0);
+    --tbn-field-border-active: oklch(0.2972 0 0);
+    --tbn-field-border-error: var(--color-red-600);
+    --tbn-field-border-disabled: oklch(0.9197 0.004 286.32);
+    --tbn-field-focus-ring: oklch(0.4386 0 0 / 12%);
+
+    --tbn-field-text: oklch(0.2103 0.0059 285.89);
+    --tbn-field-placeholder: oklch(0.7118 0.0129 286.07);
+    --tbn-field-description: var(--tbn-alpha-500);
+
+    /* ── Dataviz (issue #105, Gate 2 approved 2026-07-06; cat-1..3 pending Figma p2 confirm) ── */
+    --tbn-viz-cat-1: var(--color-brand-500);
+    --tbn-viz-cat-2: var(--color-blue-500);
+    --tbn-viz-cat-3: var(--color-teal-500);
+    --tbn-viz-cat-4: var(--color-amber-500);
+    --tbn-viz-cat-5: var(--color-purple-500);
+    --tbn-viz-cat-6: var(--color-pink-500);
+    --tbn-viz-cat-7: var(--color-green-600);
+    --tbn-viz-cat-8: var(--color-slate-400);
+    --tbn-viz-seq-1: var(--color-brand-100);
+    --tbn-viz-seq-2: var(--color-brand-200);
+    --tbn-viz-seq-3: var(--color-brand-300);
+    --tbn-viz-seq-4: var(--color-brand-500);
+    --tbn-viz-seq-5: var(--color-brand-600);
+    --tbn-viz-seq-6: var(--color-brand-700);
+    --tbn-viz-status-open: var(--color-slate-400);
+    --tbn-viz-status-reviewed: var(--color-orange-500);
+    --tbn-viz-status-forwarded: var(--color-blue-500);
+    --tbn-viz-status-dept-resolved: var(--color-purple-500);
+    --tbn-viz-status-verifying: var(--color-orange-300);
+    --tbn-viz-status-closed: var(--color-green-600);
+    --tbn-viz-status-ready-to-promote: var(--color-pink-500);
+    --tbn-viz-status-promoted: var(--color-teal-500);
+    --tbn-viz-status-unsolvable: var(--color-red-600);
+    --tbn-viz-grid-line: var(--tbn-border-muted);
+    --tbn-viz-axis-line: var(--tbn-border-default);
+    --tbn-viz-axis-text: var(--tbn-text-tertiary);
+    --tbn-viz-tooltip-bg: var(--tbn-bg-surface);
+    --tbn-viz-tooltip-text: var(--tbn-text-primary);
+    --tbn-viz-tooltip-border: var(--tbn-border-default);
+    --tbn-viz-tooltip-shadow: var(--tbn-alpha-200);
+    --tbn-viz-tooltip-bg-frosted: color-mix(
+      in oklab,
+      var(--tbn-bg-surface) 72%,
+      transparent
+    ); /* @extrapolated(frosted): evilcharts 70% ref, 72% approved HITL 2026-07-06 */
+    --tbn-viz-tooltip-blur: 8px; /* @extrapolated(frosted): approved HITL 2026-07-06, Figma TBD */
+    --tbn-viz-cursor-line: oklch(from var(--tbn-text-primary) l c h / 0.35);
+    --tbn-viz-ghost-opacity: 0.28;
+    --tbn-viz-dim-opacity: 0.3;
+    --tbn-viz-label-blur: 3px; /* @extrapolated(monospace): evilcharts blur(3px), no Figma, HITL 2026-07-06 */
+    --tbn-viz-grid-ghost-opacity: 0.08; /* @extrapolated(grid): evilcharts dark 0.1, light 0.08, no Figma, HITL 2026-07-06 */
+    --tbn-viz-iso-top-opacity: 0.55; /* @extrapolated(iso): evilcharts BEVEL_OPACITY, no Figma, HITL 2026-07-06 */
+    --tbn-viz-iso-side-opacity: 0.4; /* @extrapolated(iso): evilcharts bevel*0.7, no Figma, HITL 2026-07-06 */
+    --tbn-viz-iso-hatch-opacity: 0.15; /* @extrapolated(iso): evilcharts hatch, no Figma, HITL 2026-07-06 */
+    --tbn-viz-sankey-node-opacity: 0.92; /* @extrapolated(sankey): evilcharts 0.9, no Figma, HITL pending */
+    --tbn-viz-sankey-link-opacity: 0.4; /* @extrapolated(sankey): evilcharts 0.4, no Figma, HITL pending */
+    --tbn-viz-sankey-link-dim: 0.12; /* @extrapolated(sankey): evilcharts 0.1, no Figma, HITL pending */
+    --tbn-viz-stagger: 24ms;
+    --tbn-viz-rise: 420ms;
+    --tbn-viz-draw: 650ms;
+    --tbn-viz-morph: 320ms;
+    --tbn-viz-scrub-snap: 90ms;
+    --tbn-viz-march: 2400ms; /* @extrapolated(march): evilcharts 1s slowed 2.4x, approved HITL 2026-07-06 */
+    --tbn-viz-live-pulse: 2200ms;
+    --tbn-viz-line-glow: 0.55; /* @extrapolated(glow): soft feGaussianBlur halo opacity, evilcharts glow, no Figma, HITL pending */
+    --tbn-viz-brush-veil: color-mix(
+      in oklab,
+      var(--tbn-bg-surface) 70%,
+      transparent
+    ); /* @extrapolated(brush-veil): evilcharts bg/70, approved HITL 2026-07-06 */
+    --tbn-viz-brush-blur: 2px; /* @extrapolated(brush-veil): evilcharts blur-2, approved HITL 2026-07-06 */
+
+    /* ── MLA office identity ── the one place that is ours, wherever it is annotated.
+       Surface-neutral because it now has consumers on both: marketing (office-location,
+       home teaser) and the map surface, whose bare <html> never matches
+       [data-surface="public"]. --mkt-office-* aliases these; never the reverse. */
+    --tbn-office-wash: var(--color-brand-yellow);
+    --tbn-office-ink: var(--color-brand-500);
+    --tbn-office-cast: var(--color-black-a25);
+  }
+}

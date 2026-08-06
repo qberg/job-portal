@@ -1,0 +1,280 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT.
+// Run `pnpm gen:icons` to regenerate.
+import type React from "react";
+import type { IconProps } from "../icon-props";
+
+import { ArrowDownIcon } from "./arrow-down";
+import { ArrowLeftIcon } from "./arrow-left";
+import { ArrowRightIcon } from "./arrow-right";
+import { ArrowUpIcon } from "./arrow-up";
+import { ArrowUpRightIcon } from "./arrow-up-right";
+import { BabyIcon } from "./baby";
+import { BankIcon } from "./bank";
+import { BellIcon } from "./bell";
+import { BoxIcon } from "./box";
+import { CalendarIcon } from "./calendar";
+import { CalendarProfileIcon } from "./calendar-profile";
+import { CardViewIcon } from "./card-view";
+import { CelebrateIcon } from "./celebrate";
+import { CellTowerIcon } from "./cell-tower";
+import { CertificateIcon } from "./certificate";
+import { CheckClipboardIcon } from "./check-clipboard";
+import { CheckRectangleIcon } from "./check-rectangle";
+import { CheckRefreshIcon } from "./check-refresh";
+import { CheckUnderlinedIcon } from "./check-underlined";
+import { ChecklistIcon } from "./checklist";
+import { ChevronDownIcon } from "./chevron-down";
+import { ChevronRightIcon } from "./chevron-right";
+import { ChevronUpIcon } from "./chevron-up";
+import { CircleInfoIcon } from "./circle-info";
+import { ClipboardCloseIcon } from "./clipboard-close";
+import { CompanyIcon } from "./company";
+import { ConstituencyIcon } from "./constituency";
+import { CopyIcon } from "./copy";
+import { CowIcon } from "./cow";
+import { CrosshairIcon } from "./crosshair";
+import { CrosshairProfileIcon } from "./crosshair-profile";
+import { DashboardIcon } from "./dashboard";
+import { DistrictIcon } from "./district";
+import { DogIcon } from "./dog";
+import { DotsHorizontalIcon } from "./dots-horizontal";
+import { DotsVerticalIcon } from "./dots-vertical";
+import { DownloadIcon } from "./download";
+import { DrainPipeIcon } from "./drain-pipe";
+import { DrainageIssueIcon } from "./drainage-issue";
+import { EducationIssueIcon } from "./education-issue";
+import { ElderlyWomanIcon } from "./elderly-woman";
+import { EyeIcon } from "./eye";
+import { FallenTreeIcon } from "./fallen-tree";
+import { FileUploadIcon } from "./file-upload";
+import { FilterIcon } from "./filter";
+import { FireIcon } from "./fire";
+import { FlagIcon } from "./flag";
+import { GarbageBinIcon } from "./garbage-bin";
+import { GarbageCollectionIssueIcon } from "./garbage-collection-issue";
+import { GenderIcon } from "./gender";
+import { GlobeIcon } from "./globe";
+import { GovernmentServiceIssueIcon } from "./government-service-issue";
+import { GraduationCapIcon } from "./graduation-cap";
+import { HandHeartIcon } from "./hand-heart";
+import { HelpIcon } from "./help";
+import { HighwaysIcon } from "./highways";
+import { KeywordsIcon } from "./keywords";
+import { LayersIcon } from "./layers";
+import { MailboxIcon } from "./mailbox";
+import { MapPinIcon } from "./map-pin";
+import { MaximizeIcon } from "./maximize";
+import { MenuIcon } from "./menu";
+import { MicrophoneIcon } from "./microphone";
+import { MosquitoIcon } from "./mosquito";
+import { NewsFeedIcon } from "./news-feed";
+import { NotificationIcon } from "./notification";
+import { OthersIssueIcon } from "./others-issue";
+import { PanelCloseLeftIcon } from "./panel-close-left";
+import { PanelLeftCloseIcon } from "./panel-left-close";
+import { PauseIcon } from "./pause";
+import { PdfIcon } from "./pdf";
+import { PencilIcon } from "./pencil";
+import { PersonaEcosystemEnablerIcon } from "./persona-ecosystem-enabler";
+import { PersonaGovernmentAgencyIcon } from "./persona-government-agency";
+import { PersonaIncubatorIcon } from "./persona-incubator";
+import { PersonaIndividualIcon } from "./persona-individual";
+import { PersonaInvestorIcon } from "./persona-investor";
+import { PersonaMentorIcon } from "./persona-mentor";
+import { PersonaServiceProviderIcon } from "./persona-service-provider";
+import { PersonaStartStepIcon } from "./persona-start-step";
+import { PersonaStartupIcon } from "./persona-startup";
+import { PinProfileIcon } from "./pin-profile";
+import { PlayIcon } from "./play";
+import { PlugsIcon } from "./plugs";
+import { PlusIcon } from "./plus";
+import { PoliceShieldIcon } from "./police-shield";
+import { PortsIcon } from "./ports";
+import { ProfileIcon } from "./profile";
+import { PublicHealthIssueIcon } from "./public-health-issue";
+import { PublicSafetyIssueIcon } from "./public-safety-issue";
+import { PuddleIcon } from "./puddle";
+import { PwdIcon } from "./pwd";
+import { QuoteIcon } from "./quote";
+import { QuoteDownIcon } from "./quote-down";
+import { QuoteUpIcon } from "./quote-up";
+import { RoadIcon } from "./road";
+import { RoadDamageIssueIcon } from "./road-damage-issue";
+import { ScrollIcon } from "./scroll";
+import { SearchIcon } from "./search";
+import { SecurityCameraIcon } from "./security-camera";
+import { SettingsIcon } from "./settings";
+import { ShoppingBasketIcon } from "./shopping-basket";
+import { SportsIcon } from "./sports";
+import { StorefrontIcon } from "./storefront";
+import { StormDrainIcon } from "./storm-drain";
+import { StreetLampIcon } from "./street-lamp";
+import { StreetLightIssueIcon } from "./street-light-issue";
+import { SuitcaseIcon } from "./suitcase";
+import { TableViewIcon } from "./table-view";
+import { TalukIcon } from "./taluk";
+import { ToiletIcon } from "./toilet";
+import { TownIcon } from "./town";
+import { TranslateIcon } from "./translate";
+import { TrashIcon } from "./trash";
+import { TreeIcon } from "./tree";
+import { VolumeHighIcon } from "./volume-high";
+import { VolumeMuteIcon } from "./volume-mute";
+import { VoterIdIcon } from "./voter-id";
+import { WardIcon } from "./ward";
+import { WarehouseIcon } from "./warehouse";
+import { WaterDropIcon } from "./water-drop";
+import { WaterSupplyIssueIcon } from "./water-supply-issue";
+import { WhatsappIcon } from "./whatsapp";
+import { WineBottleGlassIcon } from "./wine-bottle-glass";
+import { XBookmarkIcon } from "./x-bookmark";
+import { XCalendarIcon } from "./x-calendar";
+import { XDotsIcon } from "./x-dots";
+import { XLikeIcon } from "./x-like";
+import { XLinkIcon } from "./x-link";
+import { XLocationIcon } from "./x-location";
+import { XReplyIcon } from "./x-reply";
+import { XRepostIcon } from "./x-repost";
+import { XShareIcon } from "./x-share";
+import { XVerifiedIcon } from "./x-verified";
+import { XViewsIcon } from "./x-views";
+
+export type IconEntry = { name: string; Component: React.ComponentType<IconProps> };
+
+export const iconGallery: IconEntry[] = [
+  { name: "arrow-down", Component: ArrowDownIcon },
+  { name: "arrow-left", Component: ArrowLeftIcon },
+  { name: "arrow-right", Component: ArrowRightIcon },
+  { name: "arrow-up", Component: ArrowUpIcon },
+  { name: "arrow-up-right", Component: ArrowUpRightIcon },
+  { name: "baby", Component: BabyIcon },
+  { name: "bank", Component: BankIcon },
+  { name: "bell", Component: BellIcon },
+  { name: "box", Component: BoxIcon },
+  { name: "calendar", Component: CalendarIcon },
+  { name: "calendar-profile", Component: CalendarProfileIcon },
+  { name: "card-view", Component: CardViewIcon },
+  { name: "celebrate", Component: CelebrateIcon },
+  { name: "cell-tower", Component: CellTowerIcon },
+  { name: "certificate", Component: CertificateIcon },
+  { name: "check-clipboard", Component: CheckClipboardIcon },
+  { name: "check-rectangle", Component: CheckRectangleIcon },
+  { name: "check-refresh", Component: CheckRefreshIcon },
+  { name: "check-underlined", Component: CheckUnderlinedIcon },
+  { name: "checklist", Component: ChecklistIcon },
+  { name: "chevron-down", Component: ChevronDownIcon },
+  { name: "chevron-right", Component: ChevronRightIcon },
+  { name: "chevron-up", Component: ChevronUpIcon },
+  { name: "circle-info", Component: CircleInfoIcon },
+  { name: "clipboard-close", Component: ClipboardCloseIcon },
+  { name: "company", Component: CompanyIcon },
+  { name: "constituency", Component: ConstituencyIcon },
+  { name: "copy", Component: CopyIcon },
+  { name: "cow", Component: CowIcon },
+  { name: "crosshair", Component: CrosshairIcon },
+  { name: "crosshair-profile", Component: CrosshairProfileIcon },
+  { name: "dashboard", Component: DashboardIcon },
+  { name: "district", Component: DistrictIcon },
+  { name: "dog", Component: DogIcon },
+  { name: "dots-horizontal", Component: DotsHorizontalIcon },
+  { name: "dots-vertical", Component: DotsVerticalIcon },
+  { name: "download", Component: DownloadIcon },
+  { name: "drain-pipe", Component: DrainPipeIcon },
+  { name: "drainage-issue", Component: DrainageIssueIcon },
+  { name: "education-issue", Component: EducationIssueIcon },
+  { name: "elderly-woman", Component: ElderlyWomanIcon },
+  { name: "eye", Component: EyeIcon },
+  { name: "fallen-tree", Component: FallenTreeIcon },
+  { name: "file-upload", Component: FileUploadIcon },
+  { name: "filter", Component: FilterIcon },
+  { name: "fire", Component: FireIcon },
+  { name: "flag", Component: FlagIcon },
+  { name: "garbage-bin", Component: GarbageBinIcon },
+  { name: "garbage-collection-issue", Component: GarbageCollectionIssueIcon },
+  { name: "gender", Component: GenderIcon },
+  { name: "globe", Component: GlobeIcon },
+  { name: "government-service-issue", Component: GovernmentServiceIssueIcon },
+  { name: "graduation-cap", Component: GraduationCapIcon },
+  { name: "hand-heart", Component: HandHeartIcon },
+  { name: "help", Component: HelpIcon },
+  { name: "highways", Component: HighwaysIcon },
+  { name: "keywords", Component: KeywordsIcon },
+  { name: "layers", Component: LayersIcon },
+  { name: "mailbox", Component: MailboxIcon },
+  { name: "map-pin", Component: MapPinIcon },
+  { name: "maximize", Component: MaximizeIcon },
+  { name: "menu", Component: MenuIcon },
+  { name: "microphone", Component: MicrophoneIcon },
+  { name: "mosquito", Component: MosquitoIcon },
+  { name: "news-feed", Component: NewsFeedIcon },
+  { name: "notification", Component: NotificationIcon },
+  { name: "others-issue", Component: OthersIssueIcon },
+  { name: "panel-close-left", Component: PanelCloseLeftIcon },
+  { name: "panel-left-close", Component: PanelLeftCloseIcon },
+  { name: "pause", Component: PauseIcon },
+  { name: "pdf", Component: PdfIcon },
+  { name: "pencil", Component: PencilIcon },
+  { name: "persona-ecosystem-enabler", Component: PersonaEcosystemEnablerIcon },
+  { name: "persona-government-agency", Component: PersonaGovernmentAgencyIcon },
+  { name: "persona-incubator", Component: PersonaIncubatorIcon },
+  { name: "persona-individual", Component: PersonaIndividualIcon },
+  { name: "persona-investor", Component: PersonaInvestorIcon },
+  { name: "persona-mentor", Component: PersonaMentorIcon },
+  { name: "persona-service-provider", Component: PersonaServiceProviderIcon },
+  { name: "persona-start-step", Component: PersonaStartStepIcon },
+  { name: "persona-startup", Component: PersonaStartupIcon },
+  { name: "pin-profile", Component: PinProfileIcon },
+  { name: "play", Component: PlayIcon },
+  { name: "plugs", Component: PlugsIcon },
+  { name: "plus", Component: PlusIcon },
+  { name: "police-shield", Component: PoliceShieldIcon },
+  { name: "ports", Component: PortsIcon },
+  { name: "profile", Component: ProfileIcon },
+  { name: "public-health-issue", Component: PublicHealthIssueIcon },
+  { name: "public-safety-issue", Component: PublicSafetyIssueIcon },
+  { name: "puddle", Component: PuddleIcon },
+  { name: "pwd", Component: PwdIcon },
+  { name: "quote", Component: QuoteIcon },
+  { name: "quote-down", Component: QuoteDownIcon },
+  { name: "quote-up", Component: QuoteUpIcon },
+  { name: "road", Component: RoadIcon },
+  { name: "road-damage-issue", Component: RoadDamageIssueIcon },
+  { name: "scroll", Component: ScrollIcon },
+  { name: "search", Component: SearchIcon },
+  { name: "security-camera", Component: SecurityCameraIcon },
+  { name: "settings", Component: SettingsIcon },
+  { name: "shopping-basket", Component: ShoppingBasketIcon },
+  { name: "sports", Component: SportsIcon },
+  { name: "storefront", Component: StorefrontIcon },
+  { name: "storm-drain", Component: StormDrainIcon },
+  { name: "street-lamp", Component: StreetLampIcon },
+  { name: "street-light-issue", Component: StreetLightIssueIcon },
+  { name: "suitcase", Component: SuitcaseIcon },
+  { name: "table-view", Component: TableViewIcon },
+  { name: "taluk", Component: TalukIcon },
+  { name: "toilet", Component: ToiletIcon },
+  { name: "town", Component: TownIcon },
+  { name: "translate", Component: TranslateIcon },
+  { name: "trash", Component: TrashIcon },
+  { name: "tree", Component: TreeIcon },
+  { name: "volume-high", Component: VolumeHighIcon },
+  { name: "volume-mute", Component: VolumeMuteIcon },
+  { name: "voter-id", Component: VoterIdIcon },
+  { name: "ward", Component: WardIcon },
+  { name: "warehouse", Component: WarehouseIcon },
+  { name: "water-drop", Component: WaterDropIcon },
+  { name: "water-supply-issue", Component: WaterSupplyIssueIcon },
+  { name: "whatsapp", Component: WhatsappIcon },
+  { name: "wine-bottle-glass", Component: WineBottleGlassIcon },
+  { name: "x-bookmark", Component: XBookmarkIcon },
+  { name: "x-calendar", Component: XCalendarIcon },
+  { name: "x-dots", Component: XDotsIcon },
+  { name: "x-like", Component: XLikeIcon },
+  { name: "x-link", Component: XLinkIcon },
+  { name: "x-location", Component: XLocationIcon },
+  { name: "x-reply", Component: XReplyIcon },
+  { name: "x-repost", Component: XRepostIcon },
+  { name: "x-share", Component: XShareIcon },
+  { name: "x-verified", Component: XVerifiedIcon },
+  { name: "x-views", Component: XViewsIcon },
+];

@@ -1,0 +1,46 @@
+{
+  "name": "@jp/tribune",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "lint": "biome lint ./src",
+    "check:tokens": "tsx scripts/lint-tokens.ts",
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "gen:brand-ramp": "node scripts/gen-brand-ramp.mjs",
+    "gen:icons": "tsx scripts/generate-icons.ts"
+  },
+  "exports": {
+    "./cn": "./src/lib/utils.ts",
+    "./icons/*": "./src/icons/generated/*.tsx",
+    "./icons/brand/*": "./src/icons/brand/*.tsx",
+    "./icons/types": "./src/icons/icon-props.ts",
+    "./lib/use-guarded-text": "./src/lib/use-guarded-text.ts",
+    "./styles": "./src/styles/index.css",
+    "./styles/app": "./src/styles/app.css",
+    "./styles/public": "./src/styles/public.css",
+    "./use-media-query": "./src/lib/use-media-query.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans-tamil": "catalog:",
+    "@fontsource-variable/public-sans": "catalog:",
+    "@fontsource/pt-serif": "catalog:",
+    "clsx": "catalog:",
+    "tailwind-merge": "catalog:"
+  },
+  "devDependencies": {
+    "@jp/typescript-config": "workspace:*",
+    "@storybook/react": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "storybook": "catalog:",
+    "svgo": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

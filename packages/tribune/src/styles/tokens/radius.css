@@ -1,0 +1,13 @@
+/* Job-portal DS is rounded (Figma: auth + portal screens). Values below are
+   @extrapolated — eyeballed from the Figma PDF exports, pending HITL dev-mode
+   values. Slots (field/button/surface/popover/pill) are the stable API. */
+@theme static {
+  /* @extrapolated: inputs + OTP boxes read ~10px in Figma desktop auth */
+  --radius-field: 10px;
+  --radius-button: var(--radius-field);
+  /* @extrapolated: cards/panels read slightly larger than fields */
+  --radius-surface: 12px;
+  /* @extrapolated */
+  --radius-popover: 8px;
+  --radius-pill: calc(infinity * 1px);
+}

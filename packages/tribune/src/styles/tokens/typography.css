@@ -1,0 +1,72 @@
+@theme static {
+  --font-sans: "Public Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "PT Serif", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-tamil: "Noto Sans Tamil Variable", ui-sans-serif, sans-serif;
+
+  /* --- Display (Fluid Scales) --- */
+  /* 48px -> 72px (was in figma)  */
+  --text-display-1: clamp(3rem, 2.3785rem + 2.6519vw, 4.5rem);
+  --text-display-1--line-height: 1.2;
+  --text-display-1--letter-spacing: -0.01em;
+  /* 44px -> 64px (was in figma) */
+  --text-display-2: clamp(2.75rem, 2.232rem + 2.2099vw, 4rem);
+  --text-display-2--line-height: 1.19;
+  --text-display-2--letter-spacing: -0.0125em;
+  /* 40px -> 56px (was in figma) */
+  --text-display-3: clamp(2.5rem, 2.0856rem + 1.768vw, 3.5rem);
+  --text-display-3--line-height: 1.2;
+  --text-display-3--letter-spacing: -0.01em;
+
+  /* --- HEADINGS (Fluid: 20px -> 56px) --- */
+  /* 40px -> 56px  */
+  --text-heading-1: clamp(2.5rem, 2.0856rem + 1.768vw, 3.5rem);
+  --text-heading-1--line-height: 1.2;
+  --text-heading-1--letter-spacing: -0.008em;
+  /* 36px -> 48px */
+  --text-heading-2: clamp(2.25rem, 1.9392rem + 1.326vw, 3rem);
+  --text-heading-2--line-height: 1.21;
+  --text-heading-2--letter-spacing: -0.008em;
+  /* 30px -> 40px */
+  --text-heading-3: clamp(1.875rem, 1.616rem + 1.105vw, 2.25rem);
+  --text-heading-3--line-height: 1.2;
+  --text-heading-3--letter-spacing: -0.0075em;
+  /* 24 -> 32 */
+  --text-heading-4: clamp(1.5rem, 1.2928rem + 0.884vw, 2rem);
+  --text-heading-4--line-height: 1.1875;
+  --text-heading-4--letter-spacing: -0.006em;
+  /* 20 -> 24 */
+  --text-heading-5: clamp(1.25rem, 1.1464rem + 0.442vw, 1.5rem);
+  --text-heading-5--line-height: 1.25;
+  --text-heading-5--letter-spacing: -0.006em;
+  /*  18 -> 20 */
+  --text-heading-6: clamp(1.125rem, 1.0732rem + 0.221vw, 1.25rem);
+  --text-heading-6--line-height: 1.2;
+  --text-heading-6--letter-spacing: 0em;
+
+  /* --- BODY & LABELS (Fixed: 9px -> 18px) --- */
+  /* 18px */
+  --text-label-1: 1.125rem;
+  --text-label-1--line-height: 1.56;
+  --text-label-1--letter-spacing: 0em;
+  /* 16px */
+  --text-label-2: 1rem;
+  --text-label-2--line-height: 1.375;
+  --text-label-2--letter-spacing: 0.01em;
+  /* 14px */
+  --text-label-3: 0.875rem;
+  --text-label-3--line-height: 1.43;
+  --text-label-3--letter-spacing: 0.01em;
+  /* 12px */
+  --text-label-4: 0.75rem;
+  --text-label-4--line-height: 1.33;
+  --text-label-4--letter-spacing: 0.01em;
+  /* 10px */
+  --text-caption-1: 0.625rem;
+  --text-caption-1--line-height: 1.2;
+  --text-caption-1--letter-spacing: 0;
+  /* 9px */
+  --text-caption-2: 0.5625rem;
+  --text-caption-2--line-height: 1.1;
+  --text-caption-2--letter-spacing: 0;
+}
