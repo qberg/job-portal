@@ -1,6 +1,8 @@
 # ADR-0013 — Adopted from petition-management
 
-**Status:** Accepted
+**Status:** Accepted (amended 2026-08-06 by ADR-0014: the Storybook deferral
+below is lifted — tribune arrives as a curated fork with its Storybook
+harness)
 
 **Date:** 2026-07-30
 
@@ -47,7 +49,8 @@ product).
 - **The CMS app** (`apps/cms-admin`, Payload-based) — no content-management
   surface exists for this product yet; adopted only if/when one is needed.
 - **The Storybook app** (`apps/storybook`) — deferred; no component library
-  large enough to warrant an isolated Storybook deploy yet.
+  large enough to warrant an isolated Storybook deploy yet. *(Deferral lifted
+  2026-08-06 by ADR-0014.)*
 - **The CLI app** (`apps/cli`) — deferred; no operational job/bootstrap
   surface exists yet that needs a standalone CLI.
 - **The Tolgee self-hosted translation-management service** — deferred *for
