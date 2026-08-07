@@ -1,0 +1,9 @@
+{
+  "extends": "@jp/typescript-config/react-library.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "isolatedDeclarations": false
+  },
+  "include": [".storybook/**/*", "vitest.config.ts"],
+  "exclude": ["node_modules"]
+}
