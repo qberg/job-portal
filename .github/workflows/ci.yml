@@ -45,6 +45,9 @@ jobs:
 
       - name: Check architecture
         run: pnpm check:arch
+      
+      - name: Install Playwright browsers
+      - run: pnpm --filter @jp/storybook exec playwright install
 
       - name: Test
         run: pnpm test
