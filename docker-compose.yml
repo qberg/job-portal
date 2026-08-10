@@ -7,7 +7,7 @@ services:
   postgres:
     build:
       context: ./ops/postgres
-    image: qberg/jp-postgres:18-postgis3.6-pgvector0.8.5 # PostGIS + pgvector, one image
+    image: qberg/jp-postgres:18-postgis3.6-pgvector0.8.5 # PostGIS (ADR-0072) + pgvector, one image
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
@@ -58,7 +58,26 @@ services:
       timeout: 5s
       retries: 10
 
+  # Translation UI for the content team (Lingui .po round-trip via @tolgee/cli).
+  # Autostart Postgres (self-contained, own volume) — decoupled from the app DB.
+  # UI on :8085 to dodge dev app ports. No healthcheck: nothing depends on it and
+  # JVM boot is slow. Dev creds mirror the meili/pg pattern.
+  tolgee:
+    image: tolgee/tolgee:v3.211.4
+    restart: unless-stopped
+    environment:
+      TOLGEE_AUTHENTICATION_INITIAL_USERNAME: admin
+      TOLGEE_AUTHENTICATION_INITIAL_PASSWORD: devpassword
+      TOLGEE_AUTHENTICATION_JWT_SECRET: dev_only_tolgee_jwt_secret_min_32_chars_long
+      TOLGEE_AUTHENTICATION_REGISTRATIONS_ALLOWED: "false"
+      TOLGEE_FRONT_END_URL: http://localhost:8085
+    ports:
+      - "8085:8080"
+    volumes:
+      - tolgee_data:/data
+
 volumes:
   pg_data:
   valkey_data:
   meili_data:
+  tolgee_data:

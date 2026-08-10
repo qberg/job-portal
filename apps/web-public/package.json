@@ -1,0 +1,41 @@
+{
+  "name": "@jp/web-public",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS=--max-old-space-size=2048 dotenv -e ../../.env -- next dev",
+    "build": "dotenv -e ../../.env -- next build",
+    "start": "dotenv -e ../../.env -- next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check:arch": "depcruise --config .dependency-cruiser.cjs src",
+    "map:teaser-basemap": "dotenv -e ../../.env -- node scripts/render-home-teaser-basemap.mjs",
+    "knip": "knip",
+    "e2e": "playwright test",
+    "clean": "git clean -xdf .cache .turbo .next dist node_modules"
+  },
+  "dependencies": {
+    "@orpc/client": "catalog:",
+    "@jp/env": "workspace:*",
+    "@jp/tribune": "workspace:*",
+    "@sentry/react": "catalog:",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "valibot": "catalog:"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@jp/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "dependency-cruiser": "catalog:",
+    "dotenv-cli": "catalog:",
+    "knip": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

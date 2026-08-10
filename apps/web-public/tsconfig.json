@@ -1,0 +1,5 @@
+{
+  "extends": "@jp/typescript-config/next.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
+}

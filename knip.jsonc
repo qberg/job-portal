@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "rules": {
-    // Catalog is pre-wired with the petition-management app fleet's versions
+    // Catalog is pre-wired with the job-portal app fleet's versions
     // (ADR-0013/0014); entries become used as each app lands. Surface, don't fail.
     "catalog": "warn"
   },

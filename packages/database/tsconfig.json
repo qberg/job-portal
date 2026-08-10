@@ -1,0 +1,9 @@
+{
+  "extends": "@jp/typescript-config/node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "types": ["node"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
