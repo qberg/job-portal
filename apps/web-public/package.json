@@ -16,7 +16,6 @@
     "clean": "git clean -xdf .cache .turbo .next dist node_modules"
   },
   "dependencies": {
-    "@orpc/client": "catalog:",
     "@jp/env": "workspace:*",
     "@jp/tribune": "workspace:*",
     "@sentry/react": "catalog:",
