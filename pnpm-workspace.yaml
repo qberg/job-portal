@@ -10,7 +10,7 @@ catalog:
   # "@base-ui/react": "^1.3.0"
   "tailwindcss": "^4.2.2"
   "@tailwindcss/vite": "^4.2.2"
-  # "@tailwindcss/postcss": "^4.2.2"
+  "@tailwindcss/postcss": "^4.2.2"
   # "lucide-react": "1.14.0"
   # "class-variance-authority": "^0.7.1"
   "clsx": "^2.1.1"
@@ -68,25 +68,25 @@ catalog:
   # "@xstate/react": "6.1.0"
 
   # ── Backend / API (Hono + oRPC kernel) ──
-  # "hono": "^4.12.9"
-  # "@hono/node-server": "^1.19.11"
+  "hono": "^4.12.9"
+  "@hono/node-server": "^1.19.11"
   # "@orpc/server": "^1.13.13"
-  # "@orpc/contract": "^1.13.13"
+  "@orpc/contract": "^1.13.13"
   # "@orpc/valibot": "^1.13.13"
   # "@orpc/openapi": "^1.13.13"
-  # "valibot": "^1.3.1"
+  "valibot": "^1.3.1"
   # "uuid": "^14.0.0"
 
   # ── oRPC Client (admin SPA → api) ──
-  # "@orpc/client": "1.14.2"
+  "@orpc/client": "1.14.2"
   # "@orpc/tanstack-query": "1.14.2"
   # form-data helpers for downstream citizen Server-Action forms (ADR-0025)
   # "@orpc/openapi-client": "1.14.2"
 
   # ── Data / Persistence ──
-  # "drizzle-orm": "^0.45.1"
-  # "drizzle-kit": "^0.31.10"
-  # "postgres": "3.4.8"
+  "drizzle-orm": "^0.45.1"
+  "drizzle-kit": "^0.31.10"
+  "postgres": "3.4.8"
   # "ioredis": "5.10.1"
   # "nanoid": "^5.1.7"
   # "csv-parse": "7.0.0"
@@ -115,16 +115,16 @@ catalog:
 
   # ── Observability ──
   # Pinned to a release older than the minimumReleaseAge gate (~7.78d); bump when newer matures.
-  # "@sentry/node": "10.58.0"
-  # "@sentry/react": "10.58.0"
+  "@sentry/node": "10.58.0"
+  "@sentry/react": "10.58.0"
   # "@sentry/core": "10.58.0"
 
   # ── Auth ──
-  # "better-auth": "^1.5.6"
+  "better-auth": "^1.5.6"
 
   # ── Logging ──
-  # "pino": "^10.3.1"
-  # "pino-pretty": "^13.1.3"
+  "pino": "^10.3.1"
+  "pino-pretty": "^13.1.3"
 
   # ── Audio (voice intake playback) ──
   # Pinned to a release older than the minimumReleaseAge gate (~7.78d); bump when newer matures.
@@ -161,8 +161,8 @@ catalog:
   # ── Tooling ──
   "typescript": "^5.9.3"
   "tsx": "^4.21.0"
-  # "tsdown": "^0.21.6"
-  # "dotenv-cli": "^11.0.0"
+  "tsdown": "^0.21.6"
+  "dotenv-cli": "^11.0.0"
   # "dotenv": "^17.4.2"
   # "@swc-node/register": "^1.11.1"
   "svgo": "3.3.2"
@@ -172,12 +172,12 @@ catalog:
   "@vitest/browser-playwright": "^4.1.1"
   "playwright": "^1.60.0"
   # "playwright-core": "^1.60.0"
-  # "dependency-cruiser": "^17.3.9"
+  "dependency-cruiser": "^17.3.9"
   # "ts-morph": "28.0.0"
   # "@statelyai/inspect": "0.7.1"
 
   # ── Types ──
-  # "@types/node": "^22.0.0"
+  "@types/node": "^22.0.0"
   "@types/react": "^19.2.14"
   "@types/react-dom": "^19.2.3"
 
@@ -193,7 +193,7 @@ catalog:
   # "graphql": "^16.8.1"
 
   # ── Next.js (apps/cms admin) ──
-  # "next": "^16.2.9"
+  "next": "^16.2.9"
   # "sharp": "0.35.1"
 
   # ── i18n (packages/i18n, Lingui base) ──
@@ -204,7 +204,7 @@ catalog:
   # "@lingui/swc-plugin": "6.3.0"
 
   # ── e2e (apps/web-public Playwright) ──
-  # "@playwright/test": "^1.60.0"
+  "@playwright/test": "^1.60.0"
 
   # ── i18n TMS (Tolgee CLI, ADR-0070; content-team .po round-trip) ──
   # "@tolgee/cli": "2.20.0"
@@ -219,4 +219,4 @@ peerDependencyRules:
 
 onlyBuiltDependencies:
   - esbuild
-  - sharp
+  # - sharp
