@@ -9,17 +9,23 @@
     "build": "tsdown",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "check:arch": "depcruise --config .dependency-cruiser.cjs src",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
     "@hono/node-server": "catalog:",
+    "@jp/api-contract": "workspace:*",
+    "@jp/auth": "workspace:*",
     "@jp/database": "workspace:*",
     "@jp/env": "workspace:*",
     "@jp/logger": "workspace:*",
+    "@orpc/server": "catalog:",
     "@sentry/node": "catalog:",
     "dotenv": "^17.4.2",
+    "drizzle-orm": "catalog:",
     "hono": "catalog:",
+    "ioredis": "catalog:",
+    "nanoid": "catalog:",
     "valibot": "catalog:"
   },
   "devDependencies": {

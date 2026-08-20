@@ -1,0 +1,79 @@
+@reference "../../styles/index.css";
+
+@layer base {
+  :root,
+  [data-theme="light"] {
+    --tbn-scroll-thumb: var(--tbn-border-default);
+    --tbn-scroll-thumb-hover: var(--tbn-border-strong);
+
+    --tbn-scroll-bar-w: 8px;
+    --tbn-scroll-fade: 40px; /* fade ramp height, top & bottom */
+  }
+  [data-theme="dark"] {
+    /* TODO: dark scroll tokens */
+  }
+}
+
+.tbn-scroll-area {
+  @apply relative overflow-hidden;
+}
+
+.tbn-scroll-area__viewport {
+  outline: none;
+  @apply h-full w-full overscroll-contain;
+}
+
+.tbn-scroll-area__viewport--fade {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black min(var(--tbn-scroll-fade), var(--scroll-area-overflow-y-start)),
+    black
+      calc(
+        100% -
+        min(
+          var(--tbn-scroll-fade),
+          var(--scroll-area-overflow-y-end, var(--tbn-scroll-fade))
+        )
+      ),
+    transparent 100%
+  );
+  mask-repeat: no-repeat;
+}
+
+.tbn-scroll-area__content {
+  /* base-ui inlines min-width:fit-content; we never render horizontal scroll. */
+  min-width: 0 !important;
+}
+
+.tbn-scroll-area__scrollbar {
+  width: var(--tbn-scroll-bar-w);
+  margin: 2px;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+  @apply flex justify-center select-none touch-none pointer-events-none;
+  &[data-scrolling] {
+    transition-duration: 0ms;
+  }
+  &[data-hovering],
+  &[data-scrolling] {
+    opacity: 1;
+    @apply pointer-events-auto;
+  }
+}
+
+.tbn-scroll-area__thumb {
+  min-height: 104px;
+  background-color: var(--tbn-scroll-thumb);
+  transition: background-color 100ms ease-out;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--tbn-scroll-thumb-hover);
+    }
+  }
+  @apply w-full;
+}
+
+.tbn-scroll-area__corner {
+  /* vertical-only → never visible, harmless */
+}

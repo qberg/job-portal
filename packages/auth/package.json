@@ -13,11 +13,13 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
+    "ioredis": "catalog:",
     "@jp/database": "workspace:*",
+    "@jp/logger": "workspace:*",
     "better-auth": "catalog:"
   },
   "devDependencies": {

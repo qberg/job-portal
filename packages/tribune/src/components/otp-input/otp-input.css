@@ -1,0 +1,75 @@
+@reference "../../styles/index.css";
+
+@layer base {
+  :root,
+  [data-theme="light"] {
+    --tbn-otp-bg: transparent;
+    --tbn-otp-fg: var(--tbn-field-text);
+    --tbn-otp-placeholder: var(--tbn-field-placeholder);
+    --tbn-otp-border: var(--tbn-border-dashed);
+    --tbn-otp-border-filled: var(--tbn-field-border-active);
+    --tbn-otp-border-focus: var(--tbn-field-border-active);
+    --tbn-otp-ring: var(--tbn-field-focus-ring);
+    --tbn-otp-border-invalid: var(--tbn-field-border-error);
+    --tbn-otp-bg-invalid: var(--tbn-status-error-bg);
+    --tbn-otp-border-disabled: var(--tbn-field-border-disabled);
+    --tbn-otp-fg-disabled: var(--tbn-text-disabled);
+  }
+
+  [data-theme="dark"] {
+    /* TODO: dark mode OTP tokens, not implemented yet */
+  }
+}
+
+.tbn-otp {
+  @apply flex items-center gap-1;
+}
+
+.tbn-otp-input {
+  --otp-bg: var(--tbn-otp-bg);
+  --otp-border: var(--tbn-otp-border);
+
+  box-sizing: border-box;
+  color: var(--tbn-otp-fg);
+  outline: none;
+  background-color: var(--otp-bg);
+  border: 1px solid var(--otp-border);
+
+  transition:
+    border-color 100ms ease-out,
+    box-shadow 100ms ease-out;
+
+  @apply h-11 max-w-14 min-w-0 flex-1 rounded-field text-center text-label-3 font-bold;
+  @apply motion-reduce:transition-none;
+
+  /* iOS Safari auto-zooms focused inputs under 16px — hold at label-2 there. */
+  @supports (-webkit-touch-callout: none) {
+    font-size: var(--text-label-2);
+  }
+
+  &::placeholder {
+    color: var(--tbn-otp-placeholder);
+    @apply font-medium;
+  }
+
+  &[data-filled] {
+    --otp-border: var(--tbn-otp-border-filled);
+  }
+
+  &:focus-visible {
+    --otp-border: var(--tbn-otp-border-focus);
+    box-shadow: 0 0 0 3px var(--tbn-otp-ring);
+  }
+
+  &[data-invalid] {
+    --otp-bg: var(--tbn-otp-bg-invalid);
+    --otp-border: var(--tbn-otp-border-invalid);
+  }
+
+  &[data-disabled] {
+    color: var(--tbn-otp-fg-disabled);
+    pointer-events: none;
+    cursor: not-allowed;
+    border-color: var(--tbn-otp-border-disabled);
+  }
+}
