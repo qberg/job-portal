@@ -1,0 +1,497 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Vertex — Button Component
+   Token chain:
+   CSS class → --button-* local props → --tbn-btn-* semantic → oklch values
+───────────────────────────────────────────────────────────────────────────── */
+@reference "../../styles/index.css";
+
+/* --------------------- Component tokens ----------------------------------- */
+@layer base {
+  :root,
+  [data-theme="light"] {
+    --tbn-btn-primary-bg: var(--color-brand-500);
+    --tbn-btn-primary-bg-hover: var(--color-brand-400);
+    --tbn-btn-primary-bg-pressed: var(--color-brand-600);
+    --tbn-btn-primary-contrast: oklch(1 0 89.9);
+    --tbn-btn-primary-focus-ring: oklch(
+      from var(--color-brand-500) l c h /
+      0.4
+    );
+    --tbn-btn-primary-ghost-hover: oklch(
+      from var(--color-brand-500) l c h /
+      0.06
+    );
+    --tbn-btn-primary-ghost-pressed: oklch(
+      from var(--color-brand-500) l c h /
+      0.12
+    );
+    --tbn-btn-primary-border: oklch(from var(--color-brand-500) l c h / 0.3);
+
+    --tbn-btn-secondary-bg: oklch(0.4386 0 0 / 6%);
+    --tbn-btn-secondary-bg-hover: oklch(0.2178 0 0 / 9%);
+    --tbn-btn-secondary-bg-pressed: oklch(0.2178 0 0 / 20%);
+    --tbn-btn-secondary-contrast: var(--color-neutral-500);
+    --tbn-btn-secondary-focus-ring: oklch(0.7622 0.04 270.85);
+    --tbn-btn-secondary-border: oklch(0.9197 0.004 286.32);
+
+    --tbn-btn-destructive-bg: var(--color-red-700);
+    --tbn-btn-destructive-bg-hover: var(--color-red-600);
+    --tbn-btn-destructive-bg-pressed: var(--color-red-800);
+    --tbn-btn-destructive-contrast: var(--color-white);
+
+    --tbn-btn-soft-destructive-bg: var(--color-red-50);
+    --tbn-btn-soft-destructive-bg-hover: var(--color-red-100);
+    --tbn-btn-soft-destructive-bg-pressed: var(--color-red-200);
+    --tbn-btn-soft-destructive-contrast: var(--color-red-700);
+
+    --tbn-btn-success-bg: var(--color-green-700);
+    --tbn-btn-success-bg-hover: var(--color-green-600);
+    --tbn-btn-success-bg-pressed: var(--color-green-800);
+    --tbn-btn-success-contrast: var(--color-white);
+    --tbn-btn-success-focus-ring: oklch(
+      from var(--color-green-600) l c h /
+      0.4
+    );
+
+    /* @extrapolated: filled rings + outline/ghost overlays derived from each intent's
+       primitive hue; alpha steps (0.06/0.12/0.5/0.4) are vertex heritage, pending
+       Figma HITL. Relative-color keeps the chain — no raw hue literals. */
+    --tbn-btn-destructive-focus-ring: oklch(
+      from var(--color-red-500) l c h /
+      0.4
+    );
+    --tbn-btn-destructive-outline-fg: var(--color-red-500);
+    --tbn-btn-destructive-overlay-hover: oklch(
+      from var(--color-red-500) l c h /
+      0.06
+    );
+    --tbn-btn-destructive-overlay-pressed: oklch(
+      from var(--color-red-500) l c h /
+      0.12
+    );
+    --tbn-btn-destructive-border: oklch(from var(--color-red-500) l c h / 0.5);
+    --tbn-btn-destructive-ghost-hover: var(--color-red-50);
+
+    --tbn-btn-soft-destructive-focus-ring: oklch(
+      from var(--color-red-500) l c h /
+      0.4
+    );
+    --tbn-btn-soft-destructive-outline-fg: var(--color-red-500);
+    --tbn-btn-soft-destructive-overlay-hover: oklch(
+      from var(--color-red-500) l c h /
+      0.06
+    );
+    --tbn-btn-soft-destructive-overlay-pressed: oklch(
+      from var(--color-red-500) l c h /
+      0.12
+    );
+    --tbn-btn-soft-destructive-border: oklch(
+      from var(--color-red-500) l c h /
+      0.5
+    );
+    --tbn-btn-soft-destructive-ghost-hover: var(--color-red-50);
+
+    --tbn-btn-warning-bg: var(--color-orange-500);
+    --tbn-btn-warning-bg-hover: var(--color-orange-600);
+    --tbn-btn-warning-bg-pressed: var(--color-orange-700);
+    --tbn-btn-warning-contrast: var(--color-white);
+    --tbn-btn-warning-focus-ring: oklch(
+      from var(--color-orange-500) l c h /
+      0.4
+    );
+    --tbn-btn-warning-outline-fg: var(--color-orange-500);
+    --tbn-btn-warning-overlay-hover: oklch(
+      from var(--color-orange-500) l c h /
+      0.06
+    );
+    --tbn-btn-warning-overlay-pressed: oklch(
+      from var(--color-orange-500) l c h /
+      0.12
+    );
+    --tbn-btn-warning-border: oklch(from var(--color-orange-500) l c h / 0.5);
+
+    --tbn-btn-success-outline-fg: var(--color-green-600);
+    --tbn-btn-success-overlay-hover: oklch(
+      from var(--color-green-600) l c h /
+      0.06
+    );
+    --tbn-btn-success-overlay-pressed: oklch(
+      from var(--color-green-600) l c h /
+      0.12
+    );
+    --tbn-btn-success-border: oklch(from var(--color-green-600) l c h / 0.5);
+
+    --tbn-btn-neutral-bg: var(--color-neutral-700);
+    --tbn-btn-neutral-bg-hover: var(--color-neutral-800);
+    --tbn-btn-neutral-bg-pressed: var(--color-neutral-900);
+    --tbn-btn-neutral-contrast: var(--color-white);
+    --tbn-btn-neutral-focus-ring: oklch(
+      from var(--color-neutral-700) l c h /
+      0.4
+    );
+    --tbn-btn-neutral-outline-fg: var(--color-neutral-700);
+    --tbn-btn-neutral-overlay-hover: oklch(
+      from var(--color-neutral-700) l c h /
+      0.06
+    );
+    --tbn-btn-neutral-overlay-pressed: oklch(
+      from var(--color-neutral-700) l c h /
+      0.12
+    );
+    --tbn-btn-neutral-border: oklch(from var(--color-neutral-700) l c h / 0.5);
+
+    /* Surface — opaque white button for tinted rows (file-tile View). Confirmed
+       reuse of system tokens; bg MUST stay opaque so a colored row can't bleed. */
+    --tbn-btn-surface-bg: var(--tbn-bg-surface);
+    --tbn-btn-surface-fg: var(--tbn-text-secondary);
+    --tbn-btn-surface-border: var(--tbn-btn-secondary-border);
+    --tbn-btn-surface-ring: var(--tbn-btn-secondary-focus-ring);
+    /* @extrapolated(hover/pressed): opaque grays, no Figma — kept opaque on purpose. */
+    --tbn-btn-surface-bg-hover: var(--tbn-bg-surface-secondary);
+    --tbn-btn-surface-bg-pressed: oklch(
+      from var(--tbn-bg-surface-secondary) calc(l - 0.03) c h
+    );
+  }
+
+  [data-theme="dark"] {
+    /* TODO: dark mode primary button tokens, not implemented yet */
+  }
+}
+
+/* --------------------- Base Button Styles -------------------------------- */
+.tbn-button {
+  --button-bg: transparent;
+  --button-bg-hover: var(--button-bg);
+  --button-bg-pressed: var(--button-bg-hover);
+  --button-fg: currentColor;
+  --button-border: transparent;
+  --button-ring: transparent;
+  color: var(--button-fg);
+
+  cursor: pointer;
+
+  /* Apply tokens */
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+
+  transition:
+    background-color 100ms ease-out,
+    box-shadow 100ms ease-out,
+    transform 200ms ease-out;
+  @apply inline-flex items-center justify-center w-fit;
+  @apply shrink-0 select-none whitespace-nowrap outline-none;
+  @apply relative overflow-hidden;
+  @apply font-medium text-label-2;
+
+  @apply h-10 px-4 rounded-button;
+  & svg {
+    @apply size-[18px];
+    /* Onto the label's ink center — Tamil ink rides low in the flex box. */
+    translate: 0 var(--tbn-ink-shift, 0em);
+  }
+  @apply transform-gpu motion-reduce:transition-none;
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]),
+    &[data-hovered="true"] {
+      background-color: var(--button-bg-hover);
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--button-bg-pressed);
+    transform: scale(0.97);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--button-ring);
+  }
+
+  /* Disabled — Base UI sets data-disabled */
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  & svg {
+    @apply pointer-events-none shrink-0 size-4;
+  }
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+
+/* Tight footprint for dense icon affordances (Notion-style); Figma → Task 13. */
+.tbn-button--xs {
+  @apply h-7 px-2 text-label-3;
+  & svg {
+    @apply size-5;
+  }
+  &:active:not([data-disabled]) {
+    transform: scale(0.98);
+  }
+}
+
+.tbn-button--sm {
+  @apply h-9 px-3;
+  & svg {
+    @apply size-4;
+  }
+  &:active:not([data-disabled]) {
+    transform: scale(0.98);
+  }
+}
+
+.tbn-button--md {
+  /* No styles as this is the default size */
+}
+
+.tbn-button--lg {
+  @apply h-11 px-5;
+  & svg {
+    @apply size-5;
+  }
+  &:active:not([data-disabled]) {
+    transform: scale(0.96);
+  }
+}
+
+.tbn-button--full-width {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Label slot: lifts the label+icon ensemble so text INK (not its box) centers in
+   the button; the svg shift above re-descends icons onto that same ink line. */
+.tbn-button__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: inherit;
+  translate: 0 calc(-1 * var(--tbn-ink-shift, 0em));
+  @apply gap-2 min-w-0;
+}
+
+.tbn-button--full-width .tbn-button__content {
+  width: 100%;
+}
+
+.tbn-button--icon {
+  @apply w-10 p-0;
+  & svg {
+    translate: none;
+  }
+  & .tbn-button__content {
+    translate: none;
+  }
+}
+
+.tbn-button--xs.tbn-button--icon {
+  @apply w-7;
+}
+
+.tbn-button--sm.tbn-button--icon {
+  @apply w-8;
+}
+
+.tbn-button--lg.tbn-button--icon {
+  @apply w-12;
+}
+
+/* ── Primary x filled (default) ───────────────────────────────────────────── */
+.tbn-button--primary {
+  --button-bg: var(--tbn-btn-primary-bg);
+  --button-bg-hover: var(--tbn-btn-primary-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-primary-bg-pressed);
+  --button-fg: var(--tbn-btn-primary-contrast);
+  --button-ring: var(--tbn-btn-primary-focus-ring);
+}
+
+/* ── Primary x outlined ───────────────────────────────────────────────────── */
+.tbn-button--primary.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-primary-ghost-hover);
+  --button-bg-pressed: var(--tbn-btn-primary-ghost-pressed);
+  --button-fg: var(--tbn-btn-primary-bg);
+  --button-border: var(--tbn-btn-primary-border);
+}
+
+/* ── Primary x ghost ──────────────────────────────────────────────────────── */
+
+.tbn-button--primary.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-primary-ghost-hover);
+  --button-bg-pressed: var(--tbn-btn-primary-ghost-pressed);
+  --button-fg: var(--tbn-btn-primary-bg);
+  --button-border: transparent;
+}
+
+/* ---------------------------------------------------------------------------- /
+/* ── Secondary x filled ───────────────────────────────────────────────────── */
+.tbn-button--secondary {
+  --button-bg: var(--tbn-btn-secondary-bg);
+  --button-bg-hover: var(--tbn-btn-secondary-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-secondary-bg-pressed);
+  --button-fg: var(--tbn-btn-secondary-contrast);
+  --button-ring: var(--tbn-btn-secondary-focus-ring);
+}
+
+/* ── Secondary x outlined ─────────────────────────────────────────────────── */
+.tbn-button--secondary.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-border: var(--tbn-btn-secondary-border);
+}
+
+/* ── Secondary x ghost ────────────────────────────────────────────────────── */
+.tbn-button--secondary.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-border: transparent;
+}
+/* ---------------------------------------------------------------------------- /
+/* ── destructive x filled ───────────────────────────────────────────────────────── */
+.tbn-button--destructive {
+  --button-bg: var(--tbn-btn-destructive-bg);
+  --button-bg-hover: var(--tbn-btn-destructive-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-destructive-bg-pressed);
+  --button-fg: var(--tbn-btn-destructive-contrast);
+  --button-ring: var(--tbn-btn-destructive-focus-ring);
+}
+
+/* ── destructive x outlined ─────────────────────────────────────────────────────── */
+.tbn-button--destructive.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-destructive-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-destructive-overlay-pressed);
+  --button-fg: var(--tbn-btn-destructive-outline-fg);
+  --button-border: var(--tbn-btn-destructive-border);
+}
+
+/* ── destructive x ghost ────────────────────────────────────────────────────────── */
+.tbn-button--destructive.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-destructive-ghost-hover);
+  --button-bg-pressed: var(--tbn-btn-destructive-overlay-pressed);
+  --button-fg: var(--tbn-btn-destructive-outline-fg);
+  --button-border: transparent;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* ── soft-destructive x filled ---------------------------------------------- */
+.tbn-button--soft-destructive {
+  --button-bg: var(--tbn-btn-soft-destructive-bg);
+  --button-bg-hover: var(--tbn-btn-soft-destructive-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-soft-destructive-bg-hover);
+  --button-fg: var(--tbn-btn-soft-destructive-contrast);
+  --button-ring: var(--tbn-btn-soft-destructive-focus-ring);
+}
+
+/* ── soft-destructive x outlined ────────────────────────────────────────────────── */
+.tbn-button--soft-destructive.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-soft-destructive-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-soft-destructive-overlay-pressed);
+  --button-fg: var(--tbn-btn-soft-destructive-outline-fg);
+  --button-border: var(--tbn-btn-soft-destructive-border);
+}
+
+/* ── soft destructive x ghost ───────────────────────────────────────────────────── */
+.tbn-button--soft-destructive.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-soft-destructive-ghost-hover);
+  --button-bg-pressed: var(--tbn-btn-soft-destructive-overlay-pressed);
+  --button-fg: var(--tbn-btn-soft-destructive-outline-fg);
+  --button-border: transparent;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* ── Warning x filled ─────────────────────────────────────────────────────── */
+.tbn-button--warning {
+  --button-bg: var(--tbn-btn-warning-bg);
+  --button-bg-hover: var(--tbn-btn-warning-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-warning-bg-pressed);
+  --button-fg: var(--tbn-btn-warning-contrast);
+  --button-ring: var(--tbn-btn-warning-focus-ring);
+}
+
+/* ── Warning x outlined ───────────────────────────────────────────────────── */
+.tbn-button--warning.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-warning-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-warning-overlay-pressed);
+  --button-fg: var(--tbn-btn-warning-outline-fg);
+  --button-border: var(--tbn-btn-warning-border);
+}
+
+/* ── Warning x ghost ──────────────────────────────────────────────────────── */
+.tbn-button--warning.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-warning-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-warning-overlay-pressed);
+  --button-fg: var(--tbn-btn-warning-outline-fg);
+  --button-border: transparent;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* ── Success x filled ─────────────────────────────────────────────────────── */
+.tbn-button--success {
+  --button-bg: var(--tbn-btn-success-bg);
+  --button-bg-hover: var(--tbn-btn-success-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-success-bg-pressed);
+  --button-fg: var(--tbn-btn-success-contrast);
+  --button-ring: var(--tbn-btn-success-focus-ring);
+}
+
+/* ── Success x outlined ───────────────────────────────────────────────────── */
+.tbn-button--success.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-success-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-success-overlay-pressed);
+  --button-fg: var(--tbn-btn-success-outline-fg);
+  --button-border: var(--tbn-btn-success-border);
+}
+
+/* ── Success x ghost ──────────────────────────────────────────────────────── */
+.tbn-button--success.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-success-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-success-overlay-pressed);
+  --button-fg: var(--tbn-btn-success-outline-fg);
+  --button-border: transparent;
+}
+
+/* ── Neutral x filled ─────────────────────────────────────────────────────── */
+.tbn-button--neutral {
+  --button-bg: var(--tbn-btn-neutral-bg);
+  --button-bg-hover: var(--tbn-btn-neutral-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-neutral-bg-pressed);
+  --button-fg: var(--tbn-btn-neutral-contrast);
+  --button-ring: var(--tbn-btn-neutral-focus-ring);
+}
+
+/* ── Neutral x outlined ───────────────────────────────────────────────────── */
+.tbn-button--neutral.tbn-button--outlined {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-neutral-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-neutral-overlay-pressed);
+  --button-fg: var(--tbn-btn-neutral-outline-fg);
+  --button-border: var(--tbn-btn-neutral-border);
+}
+
+/* ── Neutral x ghost ──────────────────────────────────────────────────────── */
+.tbn-button--neutral.tbn-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--tbn-btn-neutral-overlay-hover);
+  --button-bg-pressed: var(--tbn-btn-neutral-overlay-pressed);
+  --button-fg: var(--tbn-btn-neutral-outline-fg);
+  --button-border: transparent;
+}
+
+/* ── Surface ──────────────────────────────────────────────────────────────────
+   Intent-independent opaque-white button (last so it overrides any intent).
+   Opaque bg + hover/pressed so a tinted parent row cannot bleed through. */
+.tbn-button--surface {
+  --button-bg: var(--tbn-btn-surface-bg);
+  --button-bg-hover: var(--tbn-btn-surface-bg-hover);
+  --button-bg-pressed: var(--tbn-btn-surface-bg-pressed);
+  --button-fg: var(--tbn-btn-surface-fg);
+  --button-border: var(--tbn-btn-surface-border);
+  --button-ring: var(--tbn-btn-surface-ring);
+}

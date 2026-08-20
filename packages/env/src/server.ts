@@ -19,8 +19,12 @@ export const databaseSchema = v.object({
   DATABASE_URL: v.pipe(v.string(), v.nonEmpty()),
 });
 
+export const redisSchema = v.object({
+  REDIS_URL: v.pipe(v.string(), v.nonEmpty()),
+});
+
 export const authSchema = v.object({
-  ADMIN_APP_URL: v.pipe(v.string(), v.nonEmpty()),
+  // ADMIN_APP_URL: v.pipe(v.string(), v.nonEmpty()),
   AUTH_BASE_URL: v.pipe(v.string(), v.nonEmpty()),
   AUTH_SECRET: v.pipe(v.string(), v.minLength(32)),
   AUTH_TRUSTED_ORIGINS: v.pipe(

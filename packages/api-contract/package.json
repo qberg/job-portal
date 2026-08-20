@@ -4,15 +4,17 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/contract.ts"
+    ".": "./src/contract.ts",
+    "./errors": "./src/kernel/errors.schema.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
-    "@orpc/contract": "catalog:"
+    "@orpc/contract": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@jp/typescript-config": "workspace:*",

@@ -1,0 +1,165 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Vertex — InputGroup Component
+   Token chain:
+   CSS class → --input-* local props → --tbn-field-* semantic → oklch values
+───────────────────────────────────────────────────────────────────────────── */
+@reference "../../styles/index.css";
+
+/* ----- [Shell Base] -------------------------------------------------------- */
+.tbn-input-group {
+  --input-bg: transparent;
+  --input-bg-hover: transparent;
+  --input-border: transparent;
+  --input-border-hover: var(--input-border);
+  --input-border-focus: var(--input-border);
+  --input-focus-ring: transparent;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: auto;
+
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+
+  transition:
+    border-color 100ms ease-out,
+    background-color 100ms ease-out,
+    box-shadow 100ms ease-out;
+  /* > Default size = md (h-11 px-3); size modifier classes override. */
+  @apply h-11 gap-2 px-3 rounded-field;
+  @apply motion-reduce:transition-none;
+
+  @media (hover: hover) {
+    &:not(:has([data-disabled])):not(:has([readonly])):hover {
+      background-color: var(--input-bg-hover);
+      border-color: var(--input-border-hover);
+    }
+  }
+
+  /* > INF: :focus-within fires for any focus (mouse + keyboard). */
+  &:focus-within {
+    border-color: var(--input-border-focus);
+  }
+
+  /* > INF: Ring scoped to keyboard navigation only. */
+  &:has(:focus-visible) {
+    box-shadow: 0 0 0 3px var(--input-focus-ring);
+  }
+
+  /* > INF: :has([data-invalid]) targets shell when Base UI sets data-invalid
+  > >       on the inner @base-ui/react/input element. Works standalone. */
+  &:has([data-invalid]) {
+    --input-bg: var(--tbn-status-error-bg);
+    --input-border: var(--tbn-field-border-error);
+  }
+
+  &:has([data-disabled]) {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--tbn-bg-page);
+    border-color: var(--tbn-field-border-disabled);
+  }
+}
+
+/* ----- [Inner Input — stripped bare inside shell] -------------------------- */
+/* > INF: All visual state (border, bg, ring) delegated to .tbn-input-group.
+> >       Parent selector specificity overrides .tbn-input standalone rules. */
+.tbn-input-group .tbn-input {
+  display: flex;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &[data-focused] {
+    border-color: transparent;
+  }
+
+  &:focus-visible {
+    box-shadow: none;
+  }
+
+  &[data-invalid] {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &[data-disabled],
+  &[readonly] {
+    pointer-events: auto;
+    cursor: auto;
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+/* ----- [Size modifiers] ---------------------------------------------------- */
+.tbn-input-group--sm {
+  @apply h-8 gap-1.5 px-2;
+}
+
+.tbn-input-group--lg {
+  @apply h-13 px-4;
+}
+
+/* > INF: Font size propagated into bare inner input via parent selector. */
+.tbn-input-group--sm .tbn-input {
+  @apply text-label-3;
+}
+
+.tbn-input-group--lg .tbn-input {
+  @apply text-label-1;
+}
+
+/* ----- [Full width] -------------------------------------------------------- */
+/* > min-width:0 — as a flex item, auto min size would floor at the inner input's
+> >   intrinsic ~20ch min-content, overflowing narrow rows. full-width = fill, so shrink. */
+.tbn-input-group--full-width {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ----- [Variants] ---------------------------------------------------------- */
+.tbn-input-group--primary {
+  --input-bg: var(--tbn-bg-surface);
+  --input-bg-hover: var(--tbn-bg-surface);
+  --input-border: var(--tbn-field-border-default);
+  --input-border-hover: var(--tbn-field-border-hover);
+  --input-border-focus: var(--tbn-field-border-active);
+  --input-focus-ring: var(--tbn-field-focus-ring);
+}
+
+.tbn-input-group--inline {
+  --input-bg-hover: var(--tbn-alpha-50);
+  --input-border-focus: var(--tbn-field-border-active);
+  --input-focus-ring: var(--tbn-field-focus-ring);
+}
+
+/* .tbn-input-group--ghost: all tokens stay at transparent defaults */
+
+/* ----- [Affix Slots] ------------------------------------------------------- */
+.tbn-input-group__prefix,
+.tbn-input-group__suffix {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--tbn-icon-secondary);
+  translate: 0 var(--tbn-ink-shift, 0em);
+}
+
+/* > INF: Prefix is decorative — pointer-events disabled so it never intercepts
+> >       clicks meant for the inner input. */
+.tbn-input-group__prefix {
+  pointer-events: none;
+}

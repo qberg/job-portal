@@ -1,0 +1,32 @@
+@reference "../../styles/index.css";
+
+.tbn-field {
+  @apply flex flex-col gap-1;
+}
+
+.tbn-field__label {
+  color: var(--tbn-text-primary);
+  @apply text-label-3;
+}
+
+.tbn-field__required {
+  color: var(--tbn-status-error-icon);
+  @apply ms-0.5;
+}
+
+.tbn-field__optional {
+  color: var(--tbn-text-tertiary);
+  @apply ms-1;
+}
+
+.tbn-field__description {
+  margin: 0;
+  color: var(--tbn-text-tertiary);
+  @apply text-label-3;
+}
+
+.tbn-field__error {
+  margin: 0;
+  color: var(--tbn-status-error-text);
+  @apply text-label-3;
+}
