@@ -21,6 +21,7 @@ initDatabase({ logger, url: env.DATABASE_URL });
 // Fail closed (ADR-0045): OTP must reach the citizen or sign-in must error.
 const sendCitizenOtp: SendCitizenOtp = ({ phoneNumber, code }) => {
   console.log(`OTP for ${phoneNumber}: ${code}`);
+  console.warn("Add a real adapter in production");
 };
 
 const citizenOpts: CitizenAuthOpts = {
