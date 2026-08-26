@@ -1,4 +1,3 @@
-import { getAuth } from "@jp/auth/init";
 import { getCitizenAuth } from "@jp/auth/init-citizen";
 import * as Sentry from "@sentry/node";
 import { Hono } from "hono";
@@ -19,8 +18,6 @@ app.use(
     origin: [...env.AUTH_TRUSTED_ORIGINS, ...env.CITIZEN_AUTH_TRUSTED_ORIGINS],
   })
 );
-
-app.on(["POST", "GET"], "/api/auth/*", (c) => getAuth().handler(c.req.raw));
 
 // isolated citizen-auth instance, distinct basePath (ADR-0025)
 app.on(["POST", "GET"], "/api/citizen-auth/*", (c) =>

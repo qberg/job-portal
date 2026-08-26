@@ -4,12 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./init": "./src/init.ts",
     "./init-citizen": "./src/init-citizen.ts",
     "./citizen": "./src/citizen.ts",
     "./citizen-types": "./src/citizen-types.ts",
-    "./secondary-storage": "./src/secondary-storage.ts",
-    "./types": "./src/types.ts"
+    "./secondary-storage": "./src/secondary-storage.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
