@@ -9,19 +9,15 @@ import { initDatabase } from "@jp/database/init";
 import { logger } from "@jp/logger";
 import Redis from "ioredis";
 import { env } from "./env";
+import { resolveSms } from "./kernel/ports/sms";
 
 // boot order is load-bearing: infra singletons must be ready before app.ts resolves getDb()/getAuth()/etc.
 initDatabase({ logger, url: env.DATABASE_URL });
-// initAuth({
-//   secret: env.AUTH_SECRET,
-//   baseURL: env.AUTH_BASE_URL,
-//   trustedOrigins: env.AUTH_TRUSTED_ORIGINS,
-// });
 
+const sendSms = resolveSms();
 // Fail closed (ADR-0045): OTP must reach the citizen or sign-in must error.
-const sendCitizenOtp: SendCitizenOtp = ({ phoneNumber, code }) => {
-  console.log(`OTP for ${phoneNumber}: ${code}`);
-  console.warn("Add a real adapter in production");
+const sendCitizenOtp: SendCitizenOtp = async ({ phoneNumber, code }) => {
+  await sendSms(phoneNumber, `Your OTP is ${code}`);
 };
 
 const citizenOpts: CitizenAuthOpts = {

@@ -40,7 +40,7 @@ export type NotFoundErrorData = InferOutput<typeof NotFoundErrorDataSchema>;
  * HTTP 409 — domain-level conflict
  */
 export const DomainErrorDataSchema = object({
-  code: string(), // e.g. "PETITION_ALREADY_SUBMITTED"
+  code: string(), // e.g. "APPLICATION_ALREADY_SUBMITTED"
   details: optional(record(string(), unknown())),
   message: string(),
 });

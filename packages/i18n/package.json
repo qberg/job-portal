@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./client": "./src/client.tsx",
+    "./config": "./src/config.ts",
     "./locales": "./src/locales.ts",
     "./server": "./src/server.ts"
   },

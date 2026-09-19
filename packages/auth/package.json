@@ -11,10 +11,11 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
+    "drizzle-orm": "catalog:",
     "ioredis": "catalog:",
     "@jp/database": "workspace:*",
     "@jp/logger": "workspace:*",

@@ -7,6 +7,10 @@ export const nodeEnvSchema = v.object({
   ),
 });
 
+export const smsSchema = v.object({
+  SMS_PROVIDER: v.optional(v.string()),
+});
+
 const splitCsv = (s: string): string[] => {
   const trimmed = s.trim();
   if (trimmed === "") {

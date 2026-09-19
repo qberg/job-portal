@@ -2,7 +2,7 @@
 
 import { Button } from "@jp/tribune/components/button";
 import { Text } from "@jp/tribune/components/text";
-import { useLingui } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { ArrowRight } from "iconsax-reactjs";
 import type { SignInPhase } from "./sign-in.machine";
 
@@ -35,7 +35,7 @@ export function SubmitFooter({
         <ArrowRight color="var(--tbn-icon-inverse)" size={18} />
       </Button>
       <Text as="p" size="label-4" variant="tertiary">
-        Powered by Villivakkam MLA Office
+        <Trans>Powered by Villivakkam MLA Office</Trans>
       </Text>
     </footer>
   );

@@ -200,14 +200,14 @@ catalog:
   "@lingui/core": "6.3.0"
   "@lingui/react": "6.3.0"
   "@lingui/conf": "6.3.0"
-  # "@lingui/cli": "6.3.0"
+  "@lingui/cli": "6.3.0"
   "@lingui/swc-plugin": "6.3.0"
 
   # ── e2e (apps/web-public Playwright) ──
   "@playwright/test": "^1.60.0"
 
   # ── i18n TMS (Tolgee CLI, ADR-0070; content-team .po round-trip) ──
-  # "@tolgee/cli": "2.20.0"
+  "@tolgee/cli": "2.20.0"
 
   # ── SEO (schema-dts types for JSON-LD structured data, types-only) ──
   # "schema-dts": "^2.0.0"

@@ -7,5 +7,6 @@ export default defineConfig({
     fileParallelism: false,
     // creates + migrates a dedicated *_test DB; never touches the dev DB
     globalSetup: ["./src/test/global-setup.ts"],
+    include: ["src/**/*.test.ts"],
   },
 });

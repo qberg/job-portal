@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-08-27 06:22+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:18
+msgid "A code was just sent. You can request another in {wait}."
+msgstr "A code was just sent. You can request another in {wait}."
+
+#: src/shared/lib/use-wait-phrase.ts:20
+msgid "a few seconds"
+msgstr "a few seconds"
+
+#: src/shared/lib/use-wait-phrase.ts:14
+msgid "about {hours} hours"
+msgstr "about {hours} hours"
+
+#: src/shared/lib/use-wait-phrase.ts:18
+msgid "about {minutes} minutes"
+msgstr "about {minutes} minutes"
+
+#: src/shared/lib/use-wait-phrase.ts:18
+msgid "about a minute"
+msgstr "about a minute"
+
+#: src/shared/lib/use-wait-phrase.ts:14
+msgid "about an hour"
+msgstr "about an hour"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:16
+msgid "Could not send the code. Please try again."
+msgstr "Could not send the code. Please try again."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:20
+msgid "Daily limit for codes reached. Try again in {wait}."
+msgstr "Daily limit for codes reached. Try again in {wait}."
+
+#: src/features/citizen-auth/sign-in/resend-row.tsx:21
+msgid "Didn't get a code? <0>Resend code</0>"
+msgstr "Didn't get a code? <0>Resend code</0>"
+
+#. placeholder {0}: formatCountdown(secondsLeft)
+#: src/features/citizen-auth/sign-in/resend-row.tsx:15
+msgid "Didn't get a code? Resend in {0}"
+msgstr "Didn't get a code? Resend in {0}"
+
+#: src/features/citizen-auth/sign-in/phone-field.tsx:42
+msgid "Edit"
+msgstr "Edit"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:14
+msgid "Enter a valid 10-digit mobile number."
+msgstr "Enter a valid 10-digit mobile number."
+
+#: src/features/citizen-auth/sign-in/otp-step.tsx:35
+msgid "Enter OTP"
+msgstr "Enter OTP"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:24
+msgid "Enter the 6-digit code."
+msgstr "Enter the 6-digit code."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:34
+msgid "Incorrect or expired code. Please try again."
+msgstr "Incorrect or expired code. Please try again."
+
+#: src/features/citizen-auth/sign-in/sign-in-header.tsx:12
+msgid "Instant mobile verification to eliminate insecure passwords."
+msgstr "Instant mobile verification to eliminate insecure passwords."
+
+#: src/features/citizen-auth/sign-in/phone-field.tsx:33
+msgid "Mobile Number"
+msgstr "Mobile Number"
+
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:38
+msgid "Powered by Villivakkam MLA Office"
+msgstr "Powered by Villivakkam MLA Office"
+
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:19
+msgid "Send OTP"
+msgstr "Send OTP"
+
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:21
+msgid "Sending…"
+msgstr "Sending…"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:36
+msgid "Something went wrong. Please try again."
+msgstr "Something went wrong. Please try again."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:26
+msgid "That code didn't match. Check the SMS and try again."
+msgstr "That code didn't match. Check the SMS and try again."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:28
+msgid "This code has expired. Tap Resend below for a new one."
+msgstr "This code has expired. Tap Resend below for a new one."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:22
+msgid "Too many attempts from your network. Try again in {wait}."
+msgstr "Too many attempts from your network. Try again in {wait}."
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:30
+msgid "Too many tries. Request a fresh code to continue."
+msgstr "Too many tries. Request a fresh code to continue."
+
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:18
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:20
+msgid "Verify"
+msgstr "Verify"
+
+#: src/app/[locale]/portal/me/page.tsx:31
+#: src/features/citizen-auth/sign-in/sign-in-header.tsx:9
+msgid "Verify Identity"
+msgstr "Verify Identity"
+
+#: src/features/citizen-auth/sign-in/submit-footer.tsx:22
+msgid "Verifying…"
+msgstr "Verifying…"
+
+#: src/features/citizen-auth/sign-in/form-error.tsx:32
+msgid "You're offline. Check your connection and try again."
+msgstr "You're offline. Check your connection and try again."
+
+#. placeholder {0}: citizen.id
+#: src/app/[locale]/portal/me/page.tsx:34
+msgid "Your Id is {0}"
+msgstr "Your Id is {0}"

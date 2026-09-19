@@ -64,21 +64,6 @@ export function notImplemented(data: NotImplementedErrorData) {
   });
 }
 
-// A @pm/filter decode/validate failure -- untrusted client AST, never a 500.
-export function badFilter(reason: string) {
-  return new ORPCError("BAD_REQUEST", {
-    data: { reason },
-    message: `Invalid filter: ${reason}`,
-  });
-}
-
-// Meili down/unreachable/timed-out -- a typed 503, never the generic 500.
-export function searchUnavailable() {
-  return new ORPCError("SERVICE_UNAVAILABLE", {
-    message: "search unavailable",
-  });
-}
-
 // Re-throw known ORPCErrors; wrap unknown as INTERNAL_SERVER_ERROR (withLifecycle).
 export function toORPCError(error: unknown, requestId: string) {
   if (error instanceof ORPCError) {

@@ -14,7 +14,6 @@ export const resolveCitizenSession = cache(
     if (error instanceof ORPCError && error.code === "UNAUTHORIZED") {
       return null;
     }
-    console.error("citizenMe RPC failed:", error);
     throw error;
   }
 );

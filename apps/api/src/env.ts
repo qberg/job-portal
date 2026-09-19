@@ -4,6 +4,7 @@ import {
   citizenAuthSchema,
   databaseSchema,
   redisSchema,
+  smsSchema,
 } from "@jp/env/server";
 import * as v from "valibot";
 
@@ -17,6 +18,7 @@ const baseSchema = v.object({
   ...citizenAuthSchema.entries,
   ...databaseSchema.entries,
   ...redisSchema.entries,
+  ...smsSchema.entries,
 });
 
 type BaseEnv = v.InferOutput<typeof baseSchema>;

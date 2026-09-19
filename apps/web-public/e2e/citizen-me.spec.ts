@@ -3,14 +3,14 @@ import { expect, test } from "@playwright/test";
 
 // OTP read from DB: better-auth phoneNumber stores plaintext as `code:attemptCount`.
 const API = "http://localhost:3001";
-const PG_CONTAINER = "petition-management-postgres-1";
+const PG_CONTAINER = "job-portal-postgres-1";
 const SIGNIN_URL = /\/en\/portal\/sign-in/;
 const DASHBOARD_URL = /\/en\/portal\/me/;
 
 function readOtp(phoneNumber: string): string {
-  const sql = `select value from citizen_verification where identifier='${phoneNumber}' order by created_at desc limit 1;`;
+  const sql = `select value from citizen_verification where identifier=':phoneNumber' order by created_at desc limit 1;`;
   const out = execSync(
-    `docker exec ${PG_CONTAINER} psql -U postgres -d job_portal -t -c "${sql}"`
+    `docker exec ${PG_CONTAINER} psql -U postgres -d job_portal -t -v phoneNumber="${phoneNumber}" -c "${sql}"`
   )
     .toString()
     .trim();

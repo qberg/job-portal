@@ -9,7 +9,7 @@
     "build": "tsdown",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "check:arch": "depcruise --config .dependency-cruiser.cjs src",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {

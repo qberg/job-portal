@@ -1,6 +1,6 @@
+import { Trans } from "@lingui/react/macro";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import { citizenApi } from "../../../../shared/api/orpc.server";
 import { resolveCitizenSession } from "../../../../shared/auth/session";
 
 export default function CitizenProfilePage({
@@ -25,6 +25,9 @@ async function ProfileGate({
   if (!citizen) {
     redirect(`/${locale}/portal/sign-in`);
   }
-  const [id] = await Promise.all([citizenApi.citizenMe()]);
-  return <h1>Your Id is {id.id}</h1>;
+  return (
+    <h1 data-testid="citizen-id">
+      <Trans>Your Id is {citizen.id}</Trans>
+    </h1>
+  );
 }

@@ -39,7 +39,7 @@ export function PhoneField({
             tone="neutral"
             underline="hover"
           >
-            Edit
+            <Trans>Edit</Trans>
           </Link>
         )}
       </div>
