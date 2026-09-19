@@ -1,0 +1,135 @@
+@reference "../../styles/index.css";
+
+.tbn-input {
+  /* Component-local tokens — overridden per variant class */
+  --input-bg: transparent;
+  --input-bg-hover: transparent;
+  --input-border: transparent;
+  --input-border-hover: var(--input-border);
+  --input-border-focus: var(--input-border);
+  --input-focus-ring: transparent;
+
+  box-sizing: border-box;
+  display: block;
+  width: auto;
+
+  font-family: inherit;
+  font-weight: 400;
+
+  color: var(--tbn-field-text);
+  outline: none;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+
+  transition:
+    border-color 100ms ease-out,
+    background-color 100ms ease-out,
+    box-shadow 100ms ease-out;
+  /* > Default size = md (h-10 px-4); size modifier classes override. */
+  @apply h-10 px-4 rounded-field;
+  @apply text-label-2;
+  @apply motion-reduce:transition-none;
+
+  /* Localized placeholders outrun the field (ta runs ~1.5x en) — degrade to an
+     ellipsis instead of a hard mid-glyph cut. Content still owes a shorter string. */
+  &::placeholder {
+    font-weight: 400;
+    color: var(--tbn-field-placeholder);
+    @apply overflow-hidden text-ellipsis;
+  }
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]):not([readonly]) {
+      background-color: var(--input-bg-hover);
+      border-color: var(--input-border-hover);
+    }
+  }
+
+  &[data-focused] {
+    border-color: var(--input-border-focus);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--input-focus-ring);
+  }
+
+  &[data-invalid] {
+    --input-bg: var(--tbn-status-error-bg);
+    --input-border: var(--tbn-field-border-error);
+  }
+
+  &[data-disabled],
+  &[readonly] {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--tbn-bg-page);
+    border-color: var(--tbn-field-border-disabled);
+  }
+
+  /* > INF: only DISABLED greys the text. A readonly field's value is real,
+     confirmed content the user must still be able to read — greying it makes a
+     filled field indistinguishable from its placeholder. */
+  &[data-disabled] {
+    color: var(--tbn-text-disabled);
+  }
+}
+
+.tbn-input--sm {
+  @apply h-8 px-3 text-label-3;
+
+  /* iOS Safari auto-zooms focused inputs under 16px — hold at label-2 there. */
+  @supports (-webkit-touch-callout: none) {
+    font-size: var(--text-label-2);
+  }
+}
+
+.tbn-input--md {
+  /* No overrides, md is the base default. */
+}
+
+.tbn-input--lg {
+  @apply h-13 px-5 text-label-1;
+}
+
+/* > Title/display input (Figma p13 Petitioner Name): heading-4, content height. */
+.tbn-input--xl {
+  height: auto;
+  @apply text-heading-4;
+
+  &::placeholder {
+    color: var(--tbn-text-disabled);
+  }
+}
+
+/* ── Full width ───────────────────────────────────────────────────────────── */
+
+/* > min-width:0 — an input's intrinsic min-content is its ~20ch size attr; as a flex
+> >   item that auto min size overflows narrow rows. full-width = fill, so shrink. */
+.tbn-input--full-width {
+  width: 100%;
+  min-width: 0;
+}
+
+.tbn-input--primary {
+  --input-bg: var(--tbn-bg-surface);
+  --input-bg-hover: var(--tbn-bg-surface);
+  --input-border: var(--tbn-field-border-default);
+  --input-border-hover: var(--tbn-field-border-hover);
+  --input-border-focus: var(--tbn-field-border-active);
+  /* > INF: Ring uses active border hue at 15% opacity Notion-style soft glow. */
+  --input-focus-ring: var(--tbn-field-focus-ring);
+}
+
+/* ── Variant: inline ──────────────────────────────────────────────────────── */
+/* > INF: Invisible at rest. Hover reveals hit area via bg. Focus reveals border. */
+
+.tbn-input--inline {
+  --input-bg-hover: var(--tbn-alpha-50);
+  --input-border-focus: var(--tbn-field-border-active);
+  --input-focus-ring: var(--tbn-field-focus-ring);
+}
+
+/* > Zero chrome — flush (no inline padding) so text aligns to surrounding content. */
+.tbn-input--ghost {
+  @apply px-0;
+}

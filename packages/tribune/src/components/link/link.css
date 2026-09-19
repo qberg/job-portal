@@ -1,0 +1,158 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Vertex — Link Component
+   Token chain:
+   CSS class → --link-* local props → --tbn-link-* semantic → primitive values
+   Figma gives only the static `underline=always · tone=neutral` case
+   ("Submit Another Petition"). All interactive/motion values below are
+   @extrapolated from tribune heritage (button) + the Cursor/Skiper reference,
+   blessed in lieu of a Figma states spec.
+───────────────────────────────────────────────────────────────────────────── */
+@reference "../../styles/index.css";
+
+/* --------------------- Component tokens ----------------------------------- */
+@layer base {
+  :root,
+  [data-theme="light"] {
+    --tbn-link-brand: var(--tbn-text-brand);
+    /* @extrapolated(hover): darken step, matches button primary-pressed. */
+    --tbn-link-brand-hover: var(--color-brand-600);
+
+    --tbn-link-neutral: var(--tbn-text-primary);
+    /* @extrapolated(hover): shift to brand red tribune accent identity. */
+    --tbn-link-neutral-hover: var(--tbn-text-brand);
+
+    --tbn-link-inverse: var(--tbn-text-inverse);
+    /* @extrapolated(hover): soften on dark, no Figma. */
+    --tbn-link-inverse-hover: oklch(from var(--color-white) l c h / 0.85);
+
+    --tbn-link-focus-ring: var(--tbn-action-primary-focus-visible);
+  }
+
+  [data-theme="dark"] {
+    /* TODO: dark mode link tokens, not implemented yet */
+  }
+}
+
+/* --------------------- Base Link Styles ----------------------------------- */
+.tbn-link {
+  --link-fg: currentColor;
+  --link-fg-hover: var(--link-fg);
+  --link-ring: var(--tbn-link-focus-ring);
+
+  /* Render-agnostic: strip <button> chrome so polymorphic `render` (a / button)
+     looks identical and inherits surrounding type. */
+  font: inherit;
+  color: var(--link-fg);
+
+  /* @extrapolated(motion): 300ms standard-easing, Cursor/Skiper reference. */
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  @apply appearance-none bg-transparent border-none p-0;
+  @apply relative inline-flex items-center w-fit no-underline outline-none;
+  @apply cursor-pointer motion-reduce:transition-none;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--link-fg-hover);
+    }
+  }
+
+  &:focus-visible {
+    border-radius: 0.125em;
+    box-shadow: 0 0 0 3px var(--link-ring);
+  }
+}
+
+/* ── Tones ──────────────────────────────────────────────────────────────── */
+.tbn-link--brand {
+  --link-fg: var(--tbn-link-brand);
+  --link-fg-hover: var(--tbn-link-brand-hover);
+}
+
+.tbn-link--neutral {
+  --link-fg: var(--tbn-link-neutral);
+  --link-fg-hover: var(--tbn-link-neutral-hover);
+}
+
+.tbn-link--inverse {
+  --link-fg: var(--tbn-link-inverse);
+  --link-fg-hover: var(--tbn-link-inverse-hover);
+}
+
+/* ── Underline (::after wipe) ───────────────────────────────────────────────
+   currentColor → underline always matches the active tone. Thickness/offset
+   @extrapolated (em-relative so the line scales with surrounding type). */
+.tbn-link--underline-hover::after,
+.tbn-link--underline-always::after {
+  bottom: -0.1em;
+  height: 0.08em;
+  content: "";
+  background-color: currentColor;
+  /* @extrapolated(motion): wipe matches the color transition. */
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  @apply pointer-events-none absolute left-0 w-full;
+}
+
+/* always: static full-width line, no hover wipe. */
+.tbn-link--underline-always::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* hover: collapsed from the right; reveals left→right on hover/focus (Skiper). */
+.tbn-link--underline-hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+@media (hover: hover) {
+  .tbn-link--underline-hover:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.tbn-link--underline-hover:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Arrow (↗ glyph, withArrow) 
+   Reserves space at rest (no layout shift); fades + slides ↗ in on hover. */
+.tbn-link__arrow {
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.25em;
+  opacity: 0;
+  transform: translate(-0.1em, 0.1em);
+  /* @extrapolated(motion): fade+slide matches the underline wipe. */
+  transition:
+    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  @apply pointer-events-none shrink-0;
+}
+
+@media (hover: hover) {
+  .tbn-link:hover .tbn-link__arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.tbn-link:focus-visible .tbn-link__arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Reduced motion: kill transforms, keep affordances visible/legible. ───── */
+@media (prefers-reduced-motion: reduce) {
+  .tbn-link--underline-hover::after,
+  .tbn-link--underline-always::after,
+  .tbn-link__arrow {
+    transition: none;
+  }
+
+  .tbn-link__arrow {
+    opacity: 1;
+    transform: none;
+  }
+}

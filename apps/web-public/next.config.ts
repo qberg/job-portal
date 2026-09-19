@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
   // cacheHandlers: {
   //   default: path.join(import.meta.dirname, "cache-handlers/default.mjs"),
   // },
-  // experimental: {
-  //   viewTransition: true,
-  // },
+  experimental: {
+    swcPlugins: [["@lingui/swc-plugin", {}]],
+  },
   images: {
     remotePatterns: [
       new URL("https://jpassets.minsky.studio/**"),

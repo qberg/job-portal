@@ -1,0 +1,59 @@
+@reference "../../styles/index.css";
+
+/* --------------------- Base ----------------------------------------------- */
+
+.tbn-container {
+  /* > INF: default = content. Size modifier classes override --container-max. */
+  --container-max: 64rem;
+
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+
+.tbn-container--narrow {
+  --container-max: 22rem;
+}
+
+/* > Figma portal sign-in: header measure 640, form measure 350. */
+.tbn-container--measure {
+  --container-max: 40rem;
+}
+
+.tbn-container--content {
+  --container-max: 50rem;
+}
+
+.tbn-container--wide {
+  --container-max: 96rem;
+}
+
+.tbn-container--full {
+  max-width: none;
+}
+
+/* ── Gutter ───────────────────────────────────────────────────────────────── */
+/* > INF: responsive inline padding off the --spacing scale (6 → 10 at lg). */
+
+.tbn-container--gutter {
+  padding-inline: calc(var(--spacing) * 6);
+}
+
+@media (width >= 64rem) {
+  .tbn-container--gutter {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+}
+
+/* > INF: gutter OUTSIDE the cap — --container-max bounds the CONTENT box, so the
+   gutter survives below the cap instead of collapsing into the auto margin.
+   `gutter` keeps the legacy border-box meaning; the two never combine. */
+
+.tbn-container--gutter-outside {
+  --tbn-container-gutter: calc(var(--spacing) * 5);
+
+  max-width: calc(var(--container-max) + 2 * var(--tbn-container-gutter));
+  padding-inline: var(--tbn-container-gutter);
+}

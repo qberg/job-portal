@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Tolgee\n"
+
+msgid "A code was just sent. You can request another in {wait}."
+msgstr "ஒரு குறியீடு இப்போது அனுப்பப்பட்டுள்ளது. நீங்கள் {wait}-இல் மற்றொன்றைக் கோரலாம்."
+
+msgid "Could not send the code. Please try again."
+msgstr "குறியீட்டை அனுப்ப முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+msgid "Daily limit for codes reached. Try again in {wait}."
+msgstr "குறியீடுகளுக்கான தினசரி வரம்பு எட்டப்பட்டுள்ளது. {wait}-ல் மீண்டும் முயற்சிக்கவும்."
+
+msgid "Didn't get a code? <0>Resend code</0>"
+msgstr "குறியீடு கிடைக்கவில்லையா? <0>குறியீட்டை மீண்டும் அனுப்பவும்</0>"
+
+msgid "Didn't get a code? Resend in {0}"
+msgstr "குறியீடு கிடைக்கவில்லையா? {0}-ல் மீண்டும் அனுப்பவும்"
+
+msgid "Edit"
+msgstr "திருத்து"
+
+msgid "Enter OTP"
+msgstr "OTP-ஐ உள்ளிடவும்"
+
+msgid "Enter a valid 10-digit mobile number."
+msgstr "சரியான 10-இலக்க மொபைல் எண்ணை உள்ளிடவும்."
+
+msgid "Enter the 6-digit code."
+msgstr "6-இலக்கக் குறியீட்டை உள்ளிடவும்."
+
+msgid "Hello"
+msgstr "வணக்கம்"
+
+msgid "Incorrect or expired code. Please try again."
+msgstr "தவறான அல்லது காலாவதியான குறியீடு. மீண்டும் முயற்சிக்கவும்."
+
+msgid "Instant mobile verification to eliminate insecure passwords."
+msgstr "பாதுகாப்பற்ற கடவுச்சொற்களை நீக்க உடனடி மொபைல் சரிபார்ப்பு."
+
+msgid "Mobile Number"
+msgstr "கைபேசி எண்"
+
+msgid "Powered by Villivakkam MLA Office"
+msgstr "வில்லிவாக்கம் சட்டமன்ற உறுப்பினர் அலுவலகம் வழங்கியது"
+
+msgid "Send OTP"
+msgstr "OTP அனுப்புங்கள்"
+
+msgid "Sending…"
+msgstr "அனுப்பப்படுகிறது..."
+
+msgid "Something went wrong. Please try again."
+msgstr "ஏதோ தவறு நடந்துவிட்டது. மீண்டும் முயற்சிக்கவும்."
+
+msgid "That code didn't match. Check the SMS and try again."
+msgstr "அந்தக் குறியீடு பொருந்தவில்லை. SMS-ஐ சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
+
+msgid "This code has expired. Tap Resend below for a new one."
+msgstr "இந்தக் குறியீடு காலாவதியாகிவிட்டது. புதிய குறியீட்டிற்கு கீழே உள்ள 'மீண்டும் அனுப்பு' என்பதைத் தட்டவும்."
+
+msgid "Too many attempts from your network. Try again in {wait}."
+msgstr "உங்கள் நெட்வொர்க்கிலிருந்து அதிகப்படியான முயற்சிகள் வந்துவிட்டன. {wait}-ல் மீண்டும் முயற்சிக்கவும்."
+
+msgid "Too many tries. Request a fresh code to continue."
+msgstr "மிக அதிகமான முயற்சிகள். தொடர ஒரு புதிய குறியீட்டைக் கோரவும்."
+
+msgid "Verify"
+msgstr "சரிபார்க்கவும்"
+
+msgid "Verify Identity"
+msgstr "அடையாளத்தைச் சரிபார்க்கவும்"
+
+msgid "Verifying…"
+msgstr "சரிபார்க்கப்படுகிறது…"
+
+msgid "You're offline. Check your connection and try again."
+msgstr "நீங்கள் ஆஃப்லைனில் உள்ளீர்கள். உங்கள் இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
+
+msgid "Your Id is {0}"
+msgstr "உங்கள் ஐடி {0}"
+
+msgid "a few seconds"
+msgstr "சில வினாடிகள்"
+
+msgid "about a minute"
+msgstr "சுமார் ஒரு நிமிடம்"
+
+msgid "about an hour"
+msgstr "சுமார் ஒரு மணி நேரம்"
+
+msgid "about {hours} hours"
+msgstr "சுமார் {hours} மணிநேரம்"
+
+msgid "about {minutes} minutes"
+msgstr "சுமார் {minutes} நிமிடங்கள்"

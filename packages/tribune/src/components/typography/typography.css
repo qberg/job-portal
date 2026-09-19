@@ -1,0 +1,206 @@
+/* ── Heading ── */
+.tbn-heading--display-1 {
+  font-size: var(--text-display-1);
+  line-height: var(--text-display-1--line-height);
+  letter-spacing: var(--text-display-1--letter-spacing);
+}
+
+.tbn-heading--display-2 {
+  font-size: var(--text-display-2);
+  line-height: var(--text-display-2--line-height);
+  letter-spacing: var(--text-display-2--letter-spacing);
+}
+
+.tbn-heading--display-3 {
+  font-size: var(--text-display-3);
+  line-height: var(--text-display-3--line-height);
+  letter-spacing: var(--text-display-3--letter-spacing);
+}
+
+.tbn-heading--heading-1 {
+  font-size: var(--text-heading-1);
+  line-height: var(--text-heading-1--line-height);
+  letter-spacing: var(--text-heading-1--letter-spacing);
+}
+
+.tbn-heading--heading-2 {
+  font-size: var(--text-heading-2);
+  line-height: var(--text-heading-2--line-height);
+  letter-spacing: var(--text-heading-2--letter-spacing);
+}
+
+.tbn-heading--heading-3 {
+  font-size: var(--text-heading-3);
+  line-height: var(--text-heading-3--line-height);
+  letter-spacing: var(--text-heading-3--letter-spacing);
+}
+
+.tbn-heading--heading-4 {
+  font-size: var(--text-heading-4);
+  line-height: var(--text-heading-4--line-height);
+  letter-spacing: var(--text-heading-4--letter-spacing);
+}
+
+.tbn-heading--heading-5 {
+  font-size: var(--text-heading-5);
+  line-height: var(--text-heading-5--line-height);
+  letter-spacing: var(--text-heading-5--letter-spacing);
+}
+
+.tbn-heading--heading-6 {
+  font-size: var(--text-heading-6);
+  line-height: var(--text-heading-6--line-height);
+  letter-spacing: var(--text-heading-6--letter-spacing);
+}
+
+/* ── Text sizes ── */
+.tbn-text--label-1 {
+  font-size: var(--text-label-1);
+  line-height: var(--text-label-1--line-height);
+  letter-spacing: var(--text-label-1--letter-spacing);
+}
+
+.tbn-text--label-2 {
+  font-size: var(--text-label-2);
+  line-height: var(--text-label-2--line-height);
+  letter-spacing: var(--text-label-2--letter-spacing);
+}
+
+.tbn-text--label-3 {
+  font-size: var(--text-label-3);
+  line-height: var(--text-label-3--line-height);
+  letter-spacing: var(--text-label-3--letter-spacing);
+}
+
+.tbn-text--label-4 {
+  font-size: var(--text-label-4);
+  line-height: var(--text-label-4--line-height);
+  letter-spacing: var(--text-label-4--letter-spacing);
+}
+
+.tbn-text--caption-1 {
+  font-size: var(--text-caption-1);
+  line-height: var(--text-caption-1--line-height);
+  letter-spacing: var(--text-caption-1--letter-spacing);
+}
+
+.tbn-text--caption-2 {
+  font-size: var(--text-caption-2);
+  line-height: var(--text-caption-2--line-height);
+  letter-spacing: var(--text-caption-2--letter-spacing);
+}
+
+/* ── Font family ── */
+/* sans is the html default (var(--font-sans)); only serif needs an override */
+.tbn-heading--serif,
+.tbn-text--serif {
+  font-family: var(--font-serif);
+}
+
+/* ── Text variants ── */
+.tbn-text--primary {
+  color: var(--tbn-text-primary);
+}
+
+.tbn-text--secondary {
+  color: var(--tbn-text-secondary);
+}
+
+.tbn-text--inverse {
+  color: var(--tbn-text-inverse);
+}
+
+.tbn-text--destructive {
+  color: var(--tbn-status-error-text);
+}
+
+.tbn-text--accent {
+  color: var(--tbn-text-brand);
+}
+
+.tbn-text--tertiary {
+  color: var(--tbn-text-tertiary);
+}
+
+/* ── Heading variants ── */
+.tbn-heading--primary {
+  color: var(--tbn-text-primary);
+}
+
+.tbn-heading--secondary {
+  color: var(--tbn-text-secondary);
+}
+
+.tbn-heading--tertiary {
+  color: var(--tbn-text-tertiary);
+}
+
+.tbn-heading--inverse {
+  color: var(--tbn-text-inverse);
+}
+
+.tbn-heading--destructive {
+  color: var(--tbn-status-error-text);
+}
+
+.tbn-heading--accent {
+  color: var(--tbn-text-brand);
+}
+
+/* ── Heading weights ── */
+.tbn-heading--thin {
+  font-weight: 100;
+}
+.tbn-heading--extralight {
+  font-weight: 200;
+}
+.tbn-heading--light {
+  font-weight: 300;
+}
+.tbn-heading--normal {
+  font-weight: 400;
+}
+.tbn-heading--medium {
+  font-weight: 500;
+}
+.tbn-heading--semibold {
+  font-weight: 600;
+}
+.tbn-heading--bold {
+  font-weight: 700;
+}
+.tbn-heading--extrabold {
+  font-weight: 800;
+}
+.tbn-heading--black {
+  font-weight: 900;
+}
+
+/* ── Text weights ── */
+.tbn-text--thin {
+  font-weight: 100;
+}
+.tbn-text--extralight {
+  font-weight: 200;
+}
+.tbn-text--light {
+  font-weight: 300;
+}
+.tbn-text--normal {
+  font-weight: 400;
+}
+.tbn-text--medium {
+  font-weight: 500;
+}
+.tbn-text--semibold {
+  font-weight: 600;
+}
+.tbn-text--bold {
+  font-weight: 700;
+}
+.tbn-text--extrabold {
+  font-weight: 800;
+}
+.tbn-text--black {
+  font-weight: 900;
+}

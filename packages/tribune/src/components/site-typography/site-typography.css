@@ -1,0 +1,154 @@
+/* Public editorial type. Each role owns its font-family (baked per token,
+   :lang(ta)-swapped in typography-public.css) — no consumer-chosen family axis. */
+
+@layer base {
+  [data-surface="public"] {
+    --tbn-type-wash-brand: var(--mkt-bg-text-brand);
+    --tbn-type-wash-neutral: var(--mkt-bg-text-neutral);
+    --tbn-type-wash-ink: var(--mkt-bg-text-ink);
+    --tbn-type-wash-inverse: var(--mkt-bg-text-inverse);
+  }
+}
+
+.tbn-type--bg-text-1 {
+  font-family: var(--text-bg-text-1--font-family);
+  font-size: var(--text-bg-text-1);
+  line-height: var(--text-bg-text-1--line-height);
+  letter-spacing: var(--text-bg-text-1--letter-spacing);
+  font-weight: var(--text-bg-text-1--font-weight, 400);
+}
+
+.tbn-type--bg-text-2 {
+  font-family: var(--text-bg-text-2--font-family);
+  font-size: var(--text-bg-text-2);
+  line-height: var(--text-bg-text-2--line-height);
+  letter-spacing: var(--text-bg-text-2--letter-spacing);
+  font-weight: var(--text-bg-text-2--font-weight, 400);
+}
+
+.tbn-type--bg-text-3 {
+  font-family: var(--text-bg-text-3--font-family);
+  font-size: var(--text-bg-text-3);
+  line-height: var(--text-bg-text-3--line-height);
+  letter-spacing: var(--text-bg-text-3--letter-spacing);
+  font-weight: var(--text-bg-text-3--font-weight, 400);
+}
+
+.tbn-type--title-1 {
+  font-family: var(--text-title-1--font-family);
+  font-size: var(--text-title-1);
+  line-height: var(--text-title-1--line-height);
+  letter-spacing: var(--text-title-1--letter-spacing);
+  font-weight: var(--text-title-1--font-weight, 400);
+}
+
+.tbn-type--title-2 {
+  font-family: var(--text-title-2--font-family);
+  font-size: var(--text-title-2);
+  line-height: var(--text-title-2--line-height);
+  letter-spacing: var(--text-title-2--letter-spacing);
+  font-weight: var(--text-title-2--font-weight, 400);
+}
+
+.tbn-type--title-3 {
+  font-family: var(--text-title-3--font-family);
+  font-size: var(--text-title-3);
+  line-height: var(--text-title-3--line-height);
+  letter-spacing: var(--text-title-3--letter-spacing);
+  font-weight: var(--text-title-3--font-weight, 400);
+}
+
+.tbn-type--title-4 {
+  font-family: var(--text-title-4--font-family);
+  font-size: var(--text-title-4);
+  line-height: var(--text-title-4--line-height);
+  letter-spacing: var(--text-title-4--letter-spacing);
+  font-weight: var(--text-title-4--font-weight, 400);
+}
+
+.tbn-type--title-5 {
+  font-family: var(--text-title-5--font-family);
+  font-size: var(--text-title-5);
+  line-height: var(--text-title-5--line-height);
+  letter-spacing: var(--text-title-5--letter-spacing);
+  font-weight: var(--text-title-5--font-weight, 400);
+}
+
+.tbn-type--title-6 {
+  font-family: var(--text-title-6--font-family);
+  font-size: var(--text-title-6);
+  line-height: var(--text-title-6--line-height);
+  letter-spacing: var(--text-title-6--letter-spacing);
+  font-weight: var(--text-title-6--font-weight, 400);
+}
+
+.tbn-type--ui-1 {
+  font-family: var(--text-ui-1--font-family);
+  font-size: var(--text-ui-1);
+  line-height: var(--text-ui-1--line-height);
+  letter-spacing: var(--text-ui-1--letter-spacing);
+  font-weight: var(--text-ui-1--font-weight, 400);
+}
+
+.tbn-type--ui-2 {
+  font-family: var(--text-ui-2--font-family);
+  font-size: var(--text-ui-2);
+  line-height: var(--text-ui-2--line-height);
+  letter-spacing: var(--text-ui-2--letter-spacing);
+  font-weight: var(--text-ui-2--font-weight, 400);
+}
+
+.tbn-type--ui-3 {
+  font-family: var(--text-ui-3--font-family);
+  font-size: var(--text-ui-3);
+  line-height: var(--text-ui-3--line-height);
+  letter-spacing: var(--text-ui-3--letter-spacing);
+  font-weight: var(--text-ui-3--font-weight, 400);
+}
+
+.tbn-type--caption-1 {
+  font-family: var(--text-caption-1--font-family);
+  font-size: var(--text-caption-1);
+  line-height: var(--text-caption-1--line-height);
+  letter-spacing: var(--text-caption-1--letter-spacing);
+  font-weight: var(--text-caption-1--font-weight, 400);
+}
+
+/* Color variants (shared with admin semantic --tbn-text-*) */
+.tbn-type--primary {
+  color: var(--tbn-text-primary);
+}
+.tbn-type--secondary {
+  color: var(--tbn-text-secondary);
+}
+.tbn-type--tertiary {
+  color: var(--tbn-text-tertiary);
+}
+.tbn-type--inverse {
+  color: var(--tbn-text-inverse);
+}
+.tbn-type--destructive {
+  color: var(--tbn-status-error-text);
+}
+.tbn-type--accent {
+  color: var(--tbn-text-brand);
+}
+.tbn-type--accent-yellow {
+  color: var(--tbn-text-brand-yellow);
+}
+
+/* Wash inks — backdrop wordmarks/ghost type on the public surface. Bound only
+   under [data-surface="public"]; a consumer CSS module must never re-declare
+   color (equal specificity to the variant class → bundle order decides). */
+.tbn-type--wash-brand {
+  color: var(--tbn-type-wash-brand);
+}
+.tbn-type--wash-neutral {
+  color: var(--tbn-type-wash-neutral);
+}
+.tbn-type--wash-ink {
+  color: var(--tbn-type-wash-ink);
+}
+.tbn-type--wash-inverse {
+  color: var(--tbn-type-wash-inverse);
+}

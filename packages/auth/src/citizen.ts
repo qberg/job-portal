@@ -1,6 +1,5 @@
 import { schema } from "@jp/database/schema";
 import type { Database } from "@jp/database/types";
-// import { isValidForKind } from "@jp/domain-types/kernel/text-kind";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { phoneNumber } from "better-auth/plugins";
@@ -22,22 +21,18 @@ export function createCitizenAuth(
 ) {
   const { onPhoneVerified } = opts;
   return betterAuth({
-    appName: "Job Portal — Job Seekers",
-    basePath: "/api/citizen-auth",
-    baseURL: config.baseURL,
-    secret: config.secret,
-    trustedOrigins: config.trustedOrigins,
-
-    ...secondaryStorageOption(config.secondaryStorage),
     advanced: {
       // Distinct prefix from staff's default "better-auth" — same origin, so a
       // shared cookie name would let a citizen login clobber a staff session.
-      cookiePrefix: "pm-citizen",
+      cookiePrefix: "jp-citizen",
       defaultCookieAttributes: sharedCookieConfig,
       ipAddress: {
         ipAddressHeaders: ["cf-connecting-ip"],
       },
     },
+    appName: "Job Portal — Job Seekers",
+    basePath: "/api/citizen-auth",
+    baseURL: config.baseURL,
 
     database: drizzleAdapter(db, {
       provider: "pg",
@@ -81,9 +76,16 @@ export function createCitizenAuth(
           : {}),
       }),
     ],
+    secret: config.secret,
+    trustedOrigins: config.trustedOrigins,
+    ...secondaryStorageOption(config.secondaryStorage),
     // Postgres stays the session source of truth; secondaryStorage is a cache in front.
     // Omit this and better-auth stores sessions in Valkey ALONE (internal-adapter.mjs:227).
-    session: { storeSessionInDatabase: true },
+    session: {
+      expiresIn: 60 * 60 * 24 * 90,
+      storeSessionInDatabase: true,
+      updateAge: 60 * 60 * 24,
+    },
     // Omit this and the OTP lives in Valkey ALONE — with secondaryStorage set,
     // createVerificationValue skips the DB row (internal-adapter.mjs:581-588, with-hooks.mjs:25).
     verification: { storeInDatabase: true },
